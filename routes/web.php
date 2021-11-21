@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\School\FacultyController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -77,6 +78,24 @@ Route::prefix('category')->group(function(){
     Route::post('/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('category.update');
 
     Route::get('/delete/{id}', [CategoryController::class, 'categoryDelete'])->name('category.delete');
+
+});
+
+// FACULTY
+
+Route::prefix('faculty')->group(function(){
+
+    Route::get('/view', [FacultyController::class, 'facultyView'])->name('faculty.view');
+
+    Route::get('/add', [FacultyController::class, 'facultyAdd'])->name('faculty.add');
+
+    Route::post('/store', [FacultyController::class, 'facultyStore'])->name('faculty.store');
+
+    Route::get('/edit/{id}', [FacultyController::class, 'facultyEdit'])->name('faculty.edit');
+
+    Route::post('/update/{id}', [FacultyController::class, 'facultyUpdate'])->name('faculty.update');
+
+    Route::get('/delete/{id}', [FacultyController::class, 'facultyDelete'])->name('faculty.delete');
 
 });
 

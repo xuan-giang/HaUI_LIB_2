@@ -185,6 +185,29 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p>
+                            Thiết lập chung
+                        </p>
+                        <i class="right fas fa-angle-left"></i>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('faculty.view') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập khoa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thiết lập lớp</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Cài đặt
