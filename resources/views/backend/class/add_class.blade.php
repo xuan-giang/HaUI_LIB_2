@@ -23,13 +23,13 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <h5>Nhập tên lớp <span class="text-danger">*</span></h5>
+                                                <h5>Tên lớp <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="name" class="form-control" >
+                                                    <input type="text" name="name" class="form-control" placeholder="Nhập tên lớp">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <h5>Nhập tên khoá <span class="text-danger">*</span></h5>
+                                                <h5>Khoá <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="name_school_year" class="form-control" placeholder="Ví dụ: K15">
                                                 </div>
@@ -43,15 +43,21 @@
                                             <div class="form-group">
                                                 <h5>Chọn khoa <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select>
-                                                        <option></option>
+                                                    <select name="faculty_id" required="" class="form-control">
+                                                        <option value="" selected="" disabled="">Chọn khoa đào tạo
+                                                        </option>
+                                                        @foreach($faculties as $faculty)
+                                                            <option
+                                                                value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+                                                        @endforeach
+
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <h5>Giáo viên chủ nhiệm</h5>
                                                 <div class="controls">
-                                                    <input type="text" name="name" class="form-control" placeholder="Nhập tên giáo viên chủ nhiệm">
+                                                    <input type="text" name="teacher_manage" class="form-control" placeholder="Nhập tên giáo viên chủ nhiệm">
                                                 </div>
                                             </div>
                                             <div class="text-xs-right">

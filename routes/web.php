@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\School\ClassController;
 use App\Http\Controllers\Backend\School\FacultyController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
@@ -98,6 +99,25 @@ Route::prefix('faculty')->group(function(){
     Route::get('/delete/{id}', [FacultyController::class, 'facultyDelete'])->name('faculty.delete');
 
 });
+
+// CLASS
+
+Route::prefix('class')->group(function(){
+
+    Route::get('/view', [ClassController::class, 'classView'])->name('class.view');
+
+    Route::get('/add', [ClassController::class, 'classAdd'])->name('class.add');
+
+    Route::post('/store', [ClassController::class, 'classStore'])->name('class.store');
+
+    Route::get('/edit/{id}', [ClassController::class, 'classEdit'])->name('class.edit');
+
+    Route::post('/update/{id}', [ClassController::class, 'classUpdate'])->name('class.update');
+
+    Route::get('/delete/{id}', [ClassController::class, 'classDelete'])->name('class.delete');
+
+});
+
 
 // STUDENT MANAGEMENT
 

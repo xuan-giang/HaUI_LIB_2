@@ -18,8 +18,9 @@
                                             <div class="row" style="margin-right: 40%">
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <h5>Nhập tên khoa <span class="text-danger">*</span></h5>
+
                                                         <div class="controls">
+                                                            <h5 >Nhập tên khoa <span class="text-danger">*</span></h5>
                                                             <input type="text" name="name" class="form-control"
                                                                    placeholder="Nhập tên khoa trong trường đại học">
                                                             <input type="text" name="amount" class="form-control"

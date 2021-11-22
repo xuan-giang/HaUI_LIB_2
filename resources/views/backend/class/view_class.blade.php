@@ -35,6 +35,7 @@
                                                 <td> {{ $class->name_school_year }}</td>
                                                 <td> {{ $class->amount_students }}</td>
                                                 <td> {{ $class->teacher_manage }}</td>
+
                                                 <td>
                                                     <a href="{{ route('class.edit',$class->id) }}"
                                                        class="btn btn-info">Edit</a>
