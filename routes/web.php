@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\ReaderController;
 use App\Http\Controllers\Backend\School\ClassController;
 use App\Http\Controllers\Backend\School\FacultyController;
 use App\Http\Controllers\Backend\UserController;
@@ -119,26 +120,21 @@ Route::prefix('class')->group(function(){
 });
 
 
-// STUDENT MANAGEMENT
+// CLASS
 
-Route::prefix('students')->group(function() {
+Route::prefix('reader')->group(function(){
 
-    Route::get('/reg/view', [StudentRegController::class, 'StudentRegView'])->name('student.registration.view');
+    Route::get('/view', [ReaderController::class, 'readerView'])->name('reader.view');
 
-    Route::get('/reg/Add', [StudentRegController::class, 'StudentRegAdd'])->name('student.registration.add');
+    Route::get('/add', [ReaderController::class, 'readerAdd'])->name('reader.add');
 
-    Route::post('/reg/store', [StudentRegController::class, 'StudentRegStore'])->name('store.student.registration');
+    Route::post('/store', [ReaderController::class, 'readerStore'])->name('reader.store');
 
-    Route::get('/year/class/wise', [StudentRegController::class, 'StudentClassYearWise'])->name('student.year.class.wise');
+    Route::get('/edit/{id}', [ReaderController::class, 'readerEdit'])->name('reader.edit');
 
-    Route::get('/reg/edit/{student_id}', [StudentRegController::class, 'StudentRegEdit'])->name('student.registration.edit');
+    Route::post('/update/{id}', [ReaderController::class, 'readerUpdate'])->name('reader.update');
 
-    Route::post('/reg/update/{student_id}', [StudentRegController::class, 'StudentRegUpdate'])->name('update.student.registration');
-
-    Route::get('/reg/promotion/{student_id}', [StudentRegController::class, 'StudentRegPromotion'])->name('student.registration.promotion');
-
-    Route::post('/reg/update/promotion/{student_id}', [StudentRegController::class, 'StudentUpdatePromotion'])->name('promotion.student.registration');
-
-    Route::get('/reg/details/{student_id}', [StudentRegController::class, 'StudentRegDetails'])->name('student.registration.details');
+    Route::get('/delete/{id}', [ReaderController::class, 'readerDelete'])->name('reader.delete');
 
 });
+

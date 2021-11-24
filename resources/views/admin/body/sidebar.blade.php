@@ -1,8 +1,8 @@
 <aside style="background-color: #522121" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Sidebar -->
-    @php
-        $user = DB::table('users')->where('id',Auth::user()->id)->first();
-    @endphp
+{{--    @php--}}
+{{--        $user = DB::table('users')->where('id',Auth::user()->id)->first();--}}
+{{--    @endphp--}}
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -13,8 +13,8 @@
 
             </div>
             <div class="info">
-                {{--                <a href="#" class="d-block">{{ Auth::user()->name }}</a>--}}
-                <a href="#" class="d-block">{{ $user->name }}</a>
+                                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+{{--                <a href="#" class="d-block">{{ $user->name }}</a>--}}
             </div>
         </div>
 
@@ -119,13 +119,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('reader.add') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm bạn đọc mới</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/error/developing.html" class="nav-link">
+                            <a href="{{ route('reader.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Quản lý bạn đọc</p>
                             </a>

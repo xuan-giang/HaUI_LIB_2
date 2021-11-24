@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AssignClass;
 use App\Models\Faculty;
 use App\Models\StudentClass;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,7 @@ class ClassController extends Controller
     public function classAdd()
     {
         $data['faculties'] = Faculty::all();
+
         return view('backend.class.add_class', $data);
     }
 

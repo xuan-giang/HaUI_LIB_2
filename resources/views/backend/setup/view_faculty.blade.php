@@ -61,8 +61,10 @@
                                                 <td>
                                                     <a href="{{ route('faculty.edit',$faculty->id) }}"
                                                        class="btn btn-info">Edit</a>
-                                                    <a href="{{ route('faculty.delete',$faculty->id) }}"
+                                                    <a href="{{ route('faculty.delete',$faculty->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-danger" id="delete">Delete</a>
+                                                    <a href="#" onClick="alert('Tính năng này đang trong thời gian phát triển, vui lòng quay lại sau!')"
+                                                       class="btn btn-primary" id="detail">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach
