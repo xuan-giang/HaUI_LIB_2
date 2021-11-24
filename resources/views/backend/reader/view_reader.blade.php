@@ -36,16 +36,16 @@
                                                 <td> {{ $reader->gender }}</td>
                                                 @foreach($classes as $key => $class )
                                                     @if($reader->class_id == $class->id)
-                                                    <td>{{ $class->name_school_year }} - {{ $class->name }}</td>
+                                                        <td>{{ $class->name_school_year }} - {{ $class->name }}</td>
                                                     @endif
                                                 @endforeach
                                                 <td> {{ $reader->phone }}</td>
-                                                <td> <a href="mailto:{{ $reader->email }}">{{ $reader->email }}</a></td>
+                                                <td><a href="mailto:{{ $reader->email }}">{{ $reader->email }}</a></td>
 
                                                 <td>
                                                     <a href="{{ route('reader.edit',$reader->id) }}"
                                                        class="btn btn-info">Edit</a>
-                                                    <a href="{{ route('reader.delete',$reader->id) }}"
+                                                    <a href="{{ route('reader.delete',$reader->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-danger" id="delete">Delete</a>
                                                 </td>
                                             </tr>

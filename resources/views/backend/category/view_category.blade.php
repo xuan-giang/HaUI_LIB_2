@@ -34,7 +34,7 @@
                                                 <td>
                                                     <a href="{{ route('category.edit',$category->id) }}"
                                                        class="btn btn-info">Edit</a>
-                                                    <a href="{{ route('category.delete',$category->id) }}"
+                                                    <a href="{{ route('category.delete',$category->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-danger" id="delete">Delete</a>
                                                 </td>
                                             </tr>
