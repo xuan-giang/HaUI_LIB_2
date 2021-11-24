@@ -39,7 +39,7 @@
                                                 <td>
                                                     <a href="{{ route('class.edit',$class->id) }}"
                                                        class="btn btn-info">Edit</a>
-                                                    <a href="{{ route('class.delete',$class->id) }}"
+                                                    <a href="{{ route('class.delete',$class->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-danger" id="delete">Delete</a>
                                                 </td>
                                             </tr>
