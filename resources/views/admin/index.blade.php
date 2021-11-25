@@ -6,6 +6,14 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
+                <?php
+                $reader = DB::table('readers')->count('*');
+//                $book = DB::table('books')->where('status',0)->count('*');
+                $user = DB::table('users')->count('*');
+                $book = DB::table('books')->count('*');
+                $category = DB::table('categories')->count('*');
+
+                ?>
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>
                 </div><!-- /.col -->
@@ -27,11 +35,14 @@
             <div class="row">
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
+
+                    <!-- /.info-box -->
+
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{!! $reader !!}</h3>
 
-                            <p>New Orders</p>
+                            <p>Danh mục</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -41,12 +52,13 @@
                 </div>
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
+
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3>{!! $book !!}</h3>
 
-                            <p>Bounce Rate</p>
+                            <p>Các đầu sách</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -56,12 +68,14 @@
                 </div>
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
+
+                    <!-- /.info-box -->
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{!! $category !!}</h3>
 
-                            <p>User Registrations</p>
+                            <p>Bạn đọc</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
@@ -74,9 +88,9 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3>{!! $user !!}</h3>
 
-                            <p>Unique Visitors</p>
+                            <p>Người dùng</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>

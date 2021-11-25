@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ReaderController;
 use App\Http\Controllers\Backend\School\ClassController;
 use App\Http\Controllers\Backend\School\FacultyController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name("admin.logout");
 
+// DASHBOARD
+
+//Route::prefix('dashboard')->group(function () {
+//
+//    Route::get('/', [DashboardController::class, 'dashboardView'])->name('dashboard.view');
+//
+//});
+
 // USER PROFILE
 Route::prefix('profile')->group(function () {
 
@@ -50,7 +59,7 @@ Route::prefix('profile')->group(function () {
 
 // USER
 
-Route::prefix('users')->group(function(){
+Route::prefix('users')->group(function () {
 
     Route::get('/view', [UserController::class, 'UserView'])->name('user.view');
 
@@ -68,7 +77,7 @@ Route::prefix('users')->group(function(){
 
 // CATEGORY
 
-Route::prefix('category')->group(function(){
+Route::prefix('category')->group(function () {
 
     Route::get('/view', [CategoryController::class, 'categoryView'])->name('category.view');
 
@@ -86,7 +95,7 @@ Route::prefix('category')->group(function(){
 
 // BOOK
 
-Route::prefix('book')->group(function(){
+Route::prefix('book')->group(function () {
 
     Route::get('/view', [BookController::class, 'bookView'])->name('book.view');
 
@@ -104,7 +113,7 @@ Route::prefix('book')->group(function(){
 
 // FACULTY
 
-Route::prefix('faculty')->group(function(){
+Route::prefix('faculty')->group(function () {
 
     Route::get('/view', [FacultyController::class, 'facultyView'])->name('faculty.view');
 
@@ -122,7 +131,7 @@ Route::prefix('faculty')->group(function(){
 
 // CLASS
 
-Route::prefix('class')->group(function(){
+Route::prefix('class')->group(function () {
 
     Route::get('/view', [ClassController::class, 'classView'])->name('class.view');
 
@@ -141,7 +150,7 @@ Route::prefix('class')->group(function(){
 
 // READER
 
-Route::prefix('reader')->group(function(){
+Route::prefix('reader')->group(function () {
 
     Route::get('/view', [ReaderController::class, 'readerView'])->name('reader.view');
 
