@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BookController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ReaderController;
@@ -83,6 +84,24 @@ Route::prefix('category')->group(function(){
 
 });
 
+// BOOK
+
+Route::prefix('book')->group(function(){
+
+    Route::get('/view', [BookController::class, 'bookView'])->name('book.view');
+
+    Route::get('/add', [BookController::class, 'bookAdd'])->name('book.add');
+
+    Route::post('/store', [BookController::class, 'bookStore'])->name('book.store');
+
+    Route::get('/edit/{id}', [BookController::class, 'bookEdit'])->name('book.edit');
+
+    Route::post('/update/{id}', [BookController::class, 'bookUpdate'])->name('book.update');
+
+    Route::get('/delete/{id}', [BookController::class, 'bookDelete'])->name('book.delete');
+
+});
+
 // FACULTY
 
 Route::prefix('faculty')->group(function(){
@@ -120,7 +139,7 @@ Route::prefix('class')->group(function(){
 });
 
 
-// CLASS
+// READER
 
 Route::prefix('reader')->group(function(){
 

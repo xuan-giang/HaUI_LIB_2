@@ -22,7 +22,7 @@
                                             <th width="5%" >STT</th>
                                             <th>Tên lớp</th>
                                             <th>Khoá</th>
-                                            <th>Sĩ số sinh viên</th>
+                                            <th>Số lượng sinh viên</th>
                                             <th>Giáo viên chủ nhiệm</th>
                                             <th width="25%">Thao tác</th>
                                         </tr>

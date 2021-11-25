@@ -95,13 +95,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('book.add') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm sách mới</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('book.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Quản lý sách</p>
                             </a>

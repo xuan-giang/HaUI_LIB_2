@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use App\Models\Reader;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
@@ -40,6 +41,11 @@ class ReaderController extends Controller
         $data->address = $request->address;
         $data->save();
 
+        $data_class = StudentClass::find($data->class_id);
+        $data_temp = $data_class->amount_students;
+        $data_class->amount_students = $data_temp + 1;
+        $data_class->save();
+
         $notification = array(
             'message' => 'Đã thêm ' . $data->name . ' vào danh sách người đọc!',
             'alert-type' => 'success'
@@ -71,8 +77,29 @@ class ReaderController extends Controller
         $data->student_code = $request->student_code;
         $data->email = $request->email;
         $data->phone = $request->phone;
-        $data->class_id = $request->class_id;
+
         $data->address = $request->address;
+
+        if ($data->class_id != $request->class_id) {
+            // Tăng amount trong Class mỡi
+            $data_class1 = StudentClass::find($request->class_id);
+            $data_temp = $data_class1->amount_students;
+            $data_class1->amount_students = $data_temp + 1;
+            $data_class1->save();
+
+            // Giảm amount trong Class cũ
+            $data_class2 = StudentClass::find($data->class_id);
+            $data_temp = $data_class2->amount_students;
+            if ($data_temp != 0) {
+                $data_class2->amount_students = $data_temp - 1;
+            } else {
+                $data_class2->amount_students = 0;
+            }
+            $data_class2->save();
+        }
+
+        $data->class_id = $request->class_id;
+
         $data->save();
 
         $notification = array(
@@ -97,6 +124,5 @@ class ReaderController extends Controller
         return redirect()->route('reader.view')->with($notification);
 
     }
-
 
 }

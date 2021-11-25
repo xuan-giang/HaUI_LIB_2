@@ -9,44 +9,47 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Danh sách người đọc</h3>
+                                <h3 class="box-title">Các đầu sách tại thư viện</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <a href="{{ route('reader.add') }}" style="float: right; margin-right: 3%"
+                                    <a href="{{ route('book.add') }}" style="float: right; margin-right: 3%"
                                        class="btn btn-rounded btn-success mb-5"> Thêm mới</a>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
                                             <th width="5%">STT</th>
-                                            <th>Họ tên</th>
-                                            <th>Giới tính</th>
-                                            <th>Lớp</th>
-                                            <th>Số điện thoại</th>
-                                            <th>Email</th>
+                                            <th>Tên sách</th>
+                                            <th>Tác giả</th>
+                                            <th>Số lượng</th>
+                                            <th>Ảnh</th>
+                                            <th>Danh mục</th>
                                             <th width="25%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($allData as $key => $reader )
+                                        @foreach($allData as $key => $book )
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
-                                                <td> {{ $reader->name }}</td>
-                                                <td> {{ $reader->gender }}</td>
-                                                @foreach($classes as $key => $class )
-                                                    @if($reader->class_id == $class->id)
-                                                        <td>{{ $class->name_school_year }} - {{ $class->name }}</td>
+                                                <td> {{ $book->name }}</td>
+                                                <td> {{ $book->author }}</td>
+                                                <td> {{ $book->amount }}</td>
+                                                <td> <img src="{{ (!empty($book->image))? url('upload/book_images/'.$book->image):url('upload/no_image.jpg') }}" width="100" height="150"> </td>
+                                                @foreach($categories as $key => $category )
+                                                    @if($book->category_id == $category->id)
+                                                        <td>{{ $category->name }}</td>
                                                     @endif
                                                 @endforeach
-                                                <td> {{ $reader->phone }}</td>
-                                                <td><a href="mailto:{{ $reader->email }}">{{ $reader->email }}</a></td>
+
 
                                                 <td>
-                                                    <a href="{{ route('reader.edit',$reader->id) }}"
+                                                    <a href="{{ route('book.edit',$book->id) }}"
                                                        class="btn btn-outline-info">Edit</a>
-                                                    <a href="{{ route('reader.delete',$reader->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
+                                                    <a href="{{ route('book.delete',$book->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-outline-danger" id="delete">Delete</a>
+                                                    <a href=""
+                                                       class="btn btn-outline-primary">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach
