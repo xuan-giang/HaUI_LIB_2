@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBorrowActivitiesTable extends Migration
+class CreateReturnDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateBorrowActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('borrow_activities', function (Blueprint $table) {
+        Schema::create('return_details', function (Blueprint $table) {
             $table->id();
             $table->integer('borrow_id');
-            $table->integer('reader_id');
+            $table->integer('book_id');
+            $table->integer('staff_id');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateBorrowActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('borrow_activities');
+        Schema::dropIfExists('return_details');
     }
 }
