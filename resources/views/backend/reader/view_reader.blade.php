@@ -19,20 +19,20 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th width="5%">STT</th>
-                                            <th>Họ tên</th>
+                                            <th style="width: 10%">Mã sinh viên</th>
+                                            <th style="width: 20%">Họ tên</th>
                                             <th>Giới tính</th>
                                             <th>Lớp</th>
                                             <th>Số điện thoại</th>
                                             <th>Email</th>
-                                            <th width="25%">Thao tác</th>
+                                            <th style="width: 20%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($allData as $key => $reader )
                                             <tr>
-                                                <td>{{ $key+1 }}</td>
-                                                <td> {{ $reader->name }}</td>
+                                                <td style="width: 10%"><a href="#">{{ $reader->student_code }}</a></td>
+                                                <td style="width: 20%"> {{ $reader->name }}</td>
                                                 <td> {{ $reader->gender }}</td>
                                                 @foreach($classes as $key => $class )
                                                     @if($reader->class_id == $class->id)

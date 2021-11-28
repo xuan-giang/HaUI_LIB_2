@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\BookController;
+use App\Http\Controllers\Backend\BorrowController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ReaderController;
@@ -33,14 +34,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name("admin.logout");
-
-// DASHBOARD
-
-//Route::prefix('dashboard')->group(function () {
-//
-//    Route::get('/', [DashboardController::class, 'dashboardView'])->name('dashboard.view');
-//
-//});
 
 // USER PROFILE
 Route::prefix('profile')->group(function () {
@@ -163,6 +156,26 @@ Route::prefix('reader')->group(function () {
     Route::post('/update/{id}', [ReaderController::class, 'readerUpdate'])->name('reader.update');
 
     Route::get('/delete/{id}', [ReaderController::class, 'readerDelete'])->name('reader.delete');
+
+});
+
+// BORROW ACTIVITIES
+
+Route::prefix('borrow')->group(function () {
+
+    Route::get('/view', [BorrowController::class, 'borrowView'])->name('borrow.view');
+
+    Route::get('/add', [BorrowController::class, 'borrowAdd'])->name('borrow.add');
+
+    Route::post('/store', [BorrowController::class, 'borrowStore'])->name('borrow.store');
+
+    Route::get('/edit/{id}', [BorrowController::class, 'borrowEdit'])->name('borrow.edit');
+
+    Route::post('/update/{id}', [BorrowController::class, 'borrowUpdate'])->name('borrow.update');
+
+    Route::get('/delete/{id}', [BorrowController::class, 'borrowDelete'])->name('borrow.delete');
+
+    Route::get('/detail/{id}', [BorrowController::class, 'borrowDetail'])->name('borrow.detail');
 
 });
 

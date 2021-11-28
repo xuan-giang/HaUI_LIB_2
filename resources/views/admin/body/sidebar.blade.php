@@ -41,13 +41,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('borrow.add') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Nhập mượn</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('borrow.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Quản lý mượn trả</p>
                             </a>

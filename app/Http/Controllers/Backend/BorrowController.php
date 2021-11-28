@@ -4,53 +4,60 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Borrow;
+use App\Models\BorrowDetail;
 use App\Models\Reader;
-use App\Models\StudentClass;
 use Illuminate\Http\Request;
+use PDF;
 
-class ReaderController extends Controller
+class BorrowController extends Controller
 {
-    public function readerView()
+    public function borrowView()
     {
-        $data['allData'] = Reader::all();
-        $data['classes'] = StudentClass::all();
-        return view('backend.reader.view_reader', $data);
+        $data['allData'] = Borrow::all();
+        return view('backend.borrow.view_borrow', $data);
     }
 
-    public function readerAdd()
+    public function borrowAdd()
     {
-        $data['classes'] = StudentClass::all();
-        return view('backend.reader.add_reader', $data);
+        $data['readers'] = Reader::all();
+        $data['books'] = Book::all();
+        return view('backend.borrow.add_borrow', $data);
     }
 
-    public function readerStore(Request $request)
+    public function borrowStore(Request $request)
     {
+        $CHECK_STATUS_AMOUNT_BOOK   = 0;
+        $NOTIFICATION_NULL_BOOK     = "";
 
-        $validatedData = $request->validate([
-            'name' => 'required|unique:readers,name',
+        $countBook = count($request->book_id);
 
-        ]);
+        $data_borrow = new Borrow();
+        $data_borrow->reader_id = $request->reader_id;
+        $data_borrow->staff_id = $request->staff_id;
+        $data_borrow->note = $request->note;
+        $data_borrow->save();
 
-        $data = new Reader();
-        $data->name = $request->name;
-        $data->gender = $request->gender;
-        $data->student_code = $request->student_code;
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-        $data->class_id = $request->class_id;
-        $data->address = $request->address;
-        $data->save();
+        if ($countBook != NULL) {
+            for ($i = 0; $i < $countBook; $i++) {
+                $data_borrow_detail = new BorrowDetail();
+                $data_borrow_detail->borrow_id = $data_borrow->id;
+                $data_borrow_detail->book_id = $request->book_id[$i];
+                $data_borrow_detail->expire_date = $request->expire_date[$i];
+                $data_borrow_detail->save();
 
-        $data_class = StudentClass::find($data->class_id);
-        $data_temp = $data_class->amount_students;
-        $data_class->amount_students = $data_temp + 1;
-        $data_class->save();
+                $data_book = Book::find($request->book_id[$i]);
+                $data_temp = $data_book->amount;
+                $data_book->amount = $data_temp - 1;
+                $data_book->save();
+            }
+        }
 
         $notification = array(
-            'message' => 'Đã thêm ' . $data->name . ' vào danh sách người đọc!',
+            'message' => 'Đã tạo phiếu mượn thành công!',
             'alert-type' => 'success'
         );
-        return redirect()->route('reader.view')->with($notification);
+        return redirect()->route('borrow.view')->with($notification);
     }
 
     public function readerEdit($id)
@@ -123,6 +130,17 @@ class ReaderController extends Controller
 
         return redirect()->route('reader.view')->with($notification);
 
+    }
+
+    public function borrowDetail($borrow_id)
+    {
+//        $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
+        $data['borrow'] = Borrow::find($borrow_id);
+        $data['borrow_detail'] = BorrowDetail::all()->where('borrow_id', $borrow_id);
+        $pdf = PDF::loadView('backend.borrow.view_detail_borrow_pdf', $data);
+
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('document.pdf');
     }
 
 }
