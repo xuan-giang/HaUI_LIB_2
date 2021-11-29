@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>
+        Xuất phiếu
+    </title>
     <style>
         #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -10,7 +13,7 @@
 
         #customers1 {
             font-family: Arial, Helvetica, sans-serif;
-            border: none;
+            border-collapse: collapse;
             width: 100%;
             text-align: center;
         }
@@ -43,6 +46,9 @@
             color: white;
         }
     </style>
+    <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
 
@@ -52,8 +58,8 @@
         <td>
             <h3 style="text-transform: uppercase">Trung tâm thông tin thư viện</h3>
             <h4>Trường Đại Học Công Nghiệp Hà Nội</h4>
-            <p style="font-size: 10px">Phone : 02113111222</p>
-            <p style="font-size: 10px">Email : contact@haui.com</p>
+            <p style="font-size: 10px">Điện thoại   : +84 243 765 5121</p>
+            <p style="font-size: 10px">Email        : dhcnhn@haui.edu.vn</p>
         </td>
         <td>
             <h2>PHIẾU MƯỢN SÁCH</h2>
@@ -65,20 +71,21 @@
 </table>
 @php
     $user = DB::table('users')->where('id',Auth::user()->id)->first();
+
 @endphp
 
 <table id="customers2" style="margin-top: 3%">
     <tr>
         <td width="10%"><b>Sinh viên:</b></td>
-        <td width="45%">Nguyễn Xuân Giang</td>
+        <td width="45%">{{ $reader['name'] }}</td>
     </tr>
     <tr>
         <td width="10%"><b>Mã sinh viên:</b></td>
-        <td width="45%">2019600275</td>
+        <td width="45%">{{ $reader['student_code'] }}</td>
     </tr>
     <tr>
         <td width="10%"><b>Lớp:</b></td>
-        <td width="45%">Hệ thống thông tin 1 - K14</td>
+        <td width="45%">{{ $class['name'] }} - {{ $class['name_school_year'] }}</td>
     </tr>
 
 </table>
@@ -92,13 +99,13 @@
     </tr>
     <tr>
         <td>{{ $borrow['id'] }}</td>
-        <td><b>Student Name</b></td>
-        <td><b>Student Name</b></td>
+        <td>Student Name</td>
+        <td>Student Name</td>
         <td></td>
     </tr>
     <tr>
         <td width="12%"><b>Ghi chú:</b></td>
-        <td width="90%" colspan="3"><i>Đã cọc 220k</i></td>
+        <td width="90%" colspan="3"><i>{{ $borrow['note'] }}</i></td>
     </tr>
 </table>
 
@@ -117,18 +124,18 @@
 
 </table>
 
-<table id="customers1" style="height: 35%;margin-top: 10%;">
+<table id="customers1" style="margin-top: 10%;">
     <tr>
         <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px">{{ $user->name }}</p>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 20px; text-align: center">{{ $user->name }}</p>
         </td>
         <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px">{{ $user->name }}</p>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 20px; text-align: center">{{ $reader['name'] }}</p>
         </td>
     </tr>
 </table>
 <br> <br>
-<i style="font-size: 10px; float: right;">Xuất phiếu ngày : {{ date("d M Y") }} - Thư viện Trường Đại Học Công Nghiệp Hà Nội</i>
+<i style="font-size: 10px; float: right;">Xuất phiếu ngày : {{ date("d/m/Y") }} - Thư viện Trường Đại Học Công Nghiệp Hà Nội</i>
 
 </body>
 </html>

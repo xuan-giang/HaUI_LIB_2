@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Borrow;
 use App\Models\BorrowDetail;
 use App\Models\Reader;
+use App\Models\StudentClass;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -15,6 +16,9 @@ class BorrowController extends Controller
     public function borrowView()
     {
         $data['allData'] = Borrow::all();
+        $data['borrow_details'] = BorrowDetail::all();
+//        $data['reader'] = Reader::find($data['allData']->reader_id);
+        $data['readers'] = Reader::all();
         return view('backend.borrow.view_borrow', $data);
     }
 
@@ -137,6 +141,8 @@ class BorrowController extends Controller
 //        $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
         $data['borrow'] = Borrow::find($borrow_id);
         $data['borrow_detail'] = BorrowDetail::all()->where('borrow_id', $borrow_id);
+        $data['reader'] = Reader::find($data['borrow']->reader_id);
+        $data['class'] = StudentClass::find($data['reader']->class_id);
         $pdf = PDF::loadView('backend.borrow.view_detail_borrow_pdf', $data);
 
         $pdf->SetProtection(['copy', 'print'], '', 'pass');

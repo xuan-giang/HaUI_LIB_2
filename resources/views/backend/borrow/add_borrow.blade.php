@@ -42,6 +42,8 @@
                                                                             - {{ $reader->name }}</option>
                                                                     @endforeach
                                                                 </select>
+                                                                <a href="{{ route('reader.add') }}" style="float: left; margin-top: 1%"
+                                                                   class="btn btn-rounded btn-outline-success mb-5"> Thêm bạn đọc mới</a>
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
@@ -112,6 +114,7 @@
 
                                             <div class="text-xs-right">
                                                 <input type="submit" class="btn btn-rounded btn-outline-primary mb-5"
+                                                       onclick="return confirm('Yêu cầu sau khi tạo sẽ không thể thay đổi hoặc xoá!\nBạn có chắc chắn tạo yêu cầu?')"
                                                        value="Submit">
                                             </div>
                                         </div>
