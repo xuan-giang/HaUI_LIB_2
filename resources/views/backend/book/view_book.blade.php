@@ -19,22 +19,24 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th width="5%">STT</th>
+                                            <th width="3%">STT</th>
                                             <th>Tên sách</th>
                                             <th>Tác giả</th>
                                             <th>Số lượng</th>
+                                            <th>Giá</th>
                                             <th>Ảnh</th>
                                             <th>Danh mục</th>
-                                            <th width="25%">Thao tác</th>
+                                            <th width="21%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($allData as $key => $book )
                                             <tr>
-                                                <td>{{ $key+1 }}</td>
+                                                <td> {{ $key+1 }}</td>
                                                 <td> {{ $book->name }}</td>
                                                 <td> {{ $book->author }}</td>
                                                 <td> {{ $book->amount }}</td>
+                                                <td> {{ $book->price }}</td>
                                                 <td> <img src="{{ (!empty($book->image))? url('upload/book_images/'.$book->image):url('upload/no_image.jpg') }}" width="100" height="150"> </td>
                                                 @foreach($categories as $key => $category )
                                                     @if($book->category_id == $category->id)

@@ -15,4 +15,9 @@ class UserController extends Controller
         $user = User::find($id);
         return view('admin.body.sidebar',compact('user'));
     }
+
+    public function UserSetup()
+    {
+        return view('profile.show');
+    }
 }

@@ -66,6 +66,7 @@ Route::prefix('users')->group(function () {
 
     Route::get('/delete/{id}', [UserController::class, 'UserDelete'])->name('users.delete');
 
+    Route::get('/setup', [UserController::class, 'UserSetup'])->name('users.setup');
 });
 
 // CATEGORY
@@ -166,6 +167,8 @@ Route::prefix('borrow')->group(function () {
     Route::get('/view', [BorrowController::class, 'borrowView'])->name('borrow.view');
 
     Route::get('/add', [BorrowController::class, 'borrowAdd'])->name('borrow.add');
+
+    Route::get('/return', [BorrowController::class, 'returnAdd'])->name('return.add');
 
     Route::post('/store', [BorrowController::class, 'borrowStore'])->name('borrow.store');
 

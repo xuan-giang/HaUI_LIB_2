@@ -47,6 +47,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('return.add') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Nhập trả</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('borrow.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Quản lý mượn trả</p>
@@ -207,7 +213,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('users.setup') }}" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Cài đặt
