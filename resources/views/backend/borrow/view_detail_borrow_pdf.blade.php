@@ -49,7 +49,7 @@
     </style>
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
 </head>
 <body>
 
@@ -59,8 +59,8 @@
         <td>
             <h3 style="text-transform: uppercase">Trung tâm thông tin thư viện</h3>
             <h4>Trường Đại Học Công Nghiệp Hà Nội</h4>
-            <p style="font-size: 10px">Điện thoại   : +84 243 765 5121</p>
-            <p style="font-size: 10px">Email        : dhcnhn@haui.edu.vn</p>
+            <p style="font-size: 10px">Điện thoại : +84 243 765 5121</p>
+            <p style="font-size: 10px">Email : dhcnhn@haui.edu.vn</p>
         </td>
         <td>
             <h2>PHIẾU MƯỢN SÁCH</h2>
@@ -97,21 +97,19 @@
         <th width="30%">Ngày đến hạn</th>
         <th width="20%">Giá niêm yết</th>
     </tr>
-    <tr>
-        <td>{{ $borrow['id'] }}</td>
-        <td>Student Name</td>
-        <td>Student Name</td>
-        <td></td>
-    </tr>
+    @php
+        $sumFee = 0;
+    @endphp
+
     <tr>
         <td width="80%" colspan="3"><b>Tổng tiền cọc:</b></td>
-        <td width="20%" colspan="1"></td>
+        <td width="20%" colspan="1">{{ number_format($sumFee, 2, ',', '.') }} VND</td>
     </tr>
 </table>
 <table>
     <tr>
-        <td width="10%"><i><b>Ghi chú:</b></i></td>
-        <td width="65%"><i>{{ $borrow['note'] }}</i></td>
+        <td width="10%" style="font-size: 10px"><i><b>Ghi chú:</b></i></td>
+        <td width="65%" style="font-size: 10px"><i>{{ $borrow['note'] }}</i></td>
     </tr>
 </table>
 <table id="customers1" style="margin-top: 5%;" cellspacing="0" cellpadding="0">
@@ -140,7 +138,8 @@
     </tr>
 </table>
 <br> <br>
-<i style="font-size: 10px; float: right;">Xuất phiếu ngày : {{ date("d/m/Y") }} - Thư viện Trường Đại Học Công Nghiệp Hà Nội</i>
+<i style="font-size: 10px; float: right;">Xuất phiếu ngày : {{ date("d/m/Y") }} - Thư viện Trường Đại Học Công Nghiệp Hà
+    Nội</i>
 
 </body>
 </html>

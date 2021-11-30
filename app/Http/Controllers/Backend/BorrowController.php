@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Borrow;
 use App\Models\BorrowDetail;
 use App\Models\Reader;
+use App\Models\ReturnDetail;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
 use PDF;
@@ -19,6 +20,8 @@ class BorrowController extends Controller
         $data['borrow_details'] = BorrowDetail::all();
 //        $data['reader'] = Reader::find($data['allData']->reader_id);
         $data['readers'] = Reader::all();
+        $data['readers'] = Reader::all();
+        $data['books'] = Book::all();
         return view('backend.borrow.view_borrow', $data);
     }
 
@@ -49,7 +52,9 @@ class BorrowController extends Controller
         $data_borrow = new Borrow();
         $data_borrow->reader_id = $request->reader_id;
         $data_borrow->staff_id = $request->staff_id;
+        $data_borrow->status = $request->status;
         $data_borrow->note = $request->note;
+
         $data_borrow->save();
 
         if ($countBook != NULL) {
@@ -81,44 +86,46 @@ class BorrowController extends Controller
 
         $countBook = count($request->book_id);
 
-        $data_borrow = new Borrow();
-        $data_borrow->reader_id = $request->reader_id;
-        $data_borrow->staff_id = $request->staff_id;
-        $data_borrow->note = $request->note;
+        $data_borrow = Borrow::find($request->borrow_id);
+        $data_borrow->status = $request->status;
+
         $data_borrow->save();
+
 
         if ($countBook != NULL) {
             for ($i = 0; $i < $countBook; $i++) {
-                $data_borrow_detail = new BorrowDetail();
-                $data_borrow_detail->borrow_id = $data_borrow->id;
-                $data_borrow_detail->book_id = $request->book_id[$i];
-                $data_borrow_detail->expire_date = $request->expire_date[$i];
-                $data_borrow_detail->save();
+                $data_return_detail = new ReturnDetail();
+                $data_return_detail->borrow_id = $data_borrow->id;
+                $data_return_detail->book_id = $request->book_id[$i];
+                $data_return_detail->staff_id = $request->staff_id;
+                $data_return_detail->save();
 
                 $data_book = Book::find($request->book_id[$i]);
                 $data_temp = $data_book->amount;
-                $data_book->amount = $data_temp - 1;
+                $data_book->amount = $data_temp + 1;
                 $data_book->save();
             }
         }
 
+
         $notification = array(
-            'message' => 'Đã tạo phiếu mượn thành công!',
+            'message' => 'Xác nhận trả thành công!',
             'alert-type' => 'success'
         );
         return redirect()->route('borrow.view')->with($notification);
     }
 
-    public function readerEdit($id)
+    public function borrowEdit($id)
     {
-        $editData['reader'] = Reader::find($id);
-        $editData['classes'] = StudentClass::all();
-        return view('backend.reader.edit_reader', $editData);
-
+        $editData['borrow'] = Borrow::find($id);
+        $editData['readers'] = Reader::all();
+        $editData['books'] = Book::all();
+        $editData['borrow_details'] = BorrowDetail::all();
+        return view('backend.borrow.edit_borrow', $editData);
     }
 
 
-    public function readerUpdate(Request $request, $id)
+    public function borrowUpdate(Request $request, $id)
     {
 
         $data = Reader::find($id);
@@ -185,9 +192,10 @@ class BorrowController extends Controller
     {
 //        $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
         $data['borrow'] = Borrow::find($borrow_id);
-        $data['borrow_detail'] = BorrowDetail::all()->where('borrow_id', $borrow_id);
+        $data['borrow_details'] = BorrowDetail::all()->where('borrow_id', $borrow_id);
         $data['reader'] = Reader::find($data['borrow']->reader_id);
         $data['class'] = StudentClass::find($data['reader']->class_id);
+        $data['books'] = Book::all();
         $pdf = PDF::loadView('backend.borrow.view_detail_borrow_pdf', $data);
 
         $pdf->SetProtection(['copy', 'print'], '', 'pass');

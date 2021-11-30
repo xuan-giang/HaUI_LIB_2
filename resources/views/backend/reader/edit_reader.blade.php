@@ -60,7 +60,7 @@
                                                     <div class="form-group" >
                                                         <h5>Mã sinh viên <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="student_code" value="0"
+                                                            <input type="text" name="student_code"
                                                                    class="form-control"
                                                                    value="{{ $reader->student_code }}" required="">
                                                         </div>

@@ -29,43 +29,162 @@
                                         <tbody>
 
                                         @foreach($allData as $key => $borrow )
-                                            <tr>
-                                                <td>{{ $borrow->id }}</td>
+                                            @if($borrow->status == "Đang mượn")
+                                                <tr>
+                                                    <td>{{ $borrow->id }}</td>
 
-                                                @foreach($readers as $key => $reader )
-                                                    @if($reader->id == $borrow->reader_id)
-                                                        <td>{{ $reader->student_code }}</td>
-                                                    @endif
-                                                @endforeach
-
-                                                @foreach($readers as $key => $reader )
-                                                    @if($reader->id == $borrow->reader_id)
-                                                        <td>{{ $reader->name }}</td>
-                                                    @endif
-                                                @endforeach
-                                                <td>
-                                                    @php
-                                                        $stt = 0;
-                                                    @endphp
-                                                    @foreach($borrow_details as $key => $borrow_detail )
-                                                        @foreach($books as $key => $book )
-
-                                                            @if($book->id == $borrow_detail->book_id && $borrow_detail->borrow_id == $borrow->id)
-                                                                #{{ $book->id }}. {{ $book->name }} <br>
-                                                            @endif
-                                                        @endforeach
+                                                    @foreach($readers as $key => $reader )
+                                                        @if($reader->id == $borrow->reader_id)
+                                                            <td>{{ $reader->student_code }}</td>
+                                                        @endif
                                                     @endforeach
-                                                </td>
-                                                <td><a href="mailto:{{ $borrow->email }}">{{ $borrow->email }}</a></td>
-                                                <td> {{ $borrow->note }}</td>
-                                                <td>
-                                                    <a href="{{ route('borrow.detail',$borrow->id) }}"
-                                                       onclick="return confirm('Xác nhận bạn đọc trả sách?')"
-                                                       class="btn btn-info">Trả sách</a>
-                                                    <a href=""
-                                                       class="btn btn-danger" id="delete">Sự cố</a>
-                                                </td>
-                                            </tr>
+
+                                                    @foreach($readers as $key => $reader )
+                                                        @if($reader->id == $borrow->reader_id)
+                                                            <td>{{ $reader->name }}</td>
+                                                        @endif
+                                                    @endforeach
+                                                    <td>
+                                                        @php
+                                                            $stt = 0;
+                                                        @endphp
+                                                        @foreach($borrow_details as $key => $borrow_detail )
+                                                            @foreach($books as $key => $book )
+
+                                                                @if($book->id == $borrow_detail->book_id && $borrow_detail->borrow_id == $borrow->id)
+                                                                    #{{ $book->id }}. {{ $book->name }} <br>
+                                                                @endif
+                                                            @endforeach
+                                                        @endforeach
+                                                    </td>
+                                                    <td>{{ $borrow->deposit }}</td>
+                                                    <td> {{ $borrow->note }}</td>
+                                                    <td>
+
+                                                        {{--        ADD RETURN BOOK         --}}
+                                                        <form method="post" action="{{ route('return.store') }}">
+                                                            @csrf
+                                                            <div class="row" style="display: none">
+                                                                <div class="col-12">
+                                                                    <div class="add_item">
+                                                                        <div class="row card-primary">
+                                                                            <div class="col-md-6">
+
+                                                                            </div>
+                                                                            <div class="col-md-6">
+
+                                                                                <div class="form-group">
+                                                                                    <h5>Trạng thái</h5>
+                                                                                    <div class="controls">
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               name="status"
+                                                                                               value="Đã trả">
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               name="borrow_id"
+                                                                                               value="{{ $borrow->id }}">
+                                                                                    </div>
+                                                                                </div> <!-- // end form group -->
+                                                                                <div class="form-group">
+                                                                                    <h5>Người xử lý</h5>
+                                                                                    <div class="controls">
+                                                                                        <input type="text"
+                                                                                               class="form-control"
+                                                                                               name="staff_id"
+                                                                                               value="{{ Auth::user()->id }}">
+                                                                                    </div>
+                                                                                </div> <!-- // end form group -->
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <div class="row">
+
+                                                                            <div class="col-md-5">
+                                                                                @foreach($borrow_details as $borrow_detail)
+                                                                                    @if($borrow_detail->borrow_id == $borrow->id)
+                                                                                        <div class="form-group">
+                                                                                            <h5>Tên sách <span
+                                                                                                    class="text-danger">*</span>
+                                                                                            </h5>
+                                                                                            <div class="controls">
+
+                                                                                                <select name="book_id[]"
+                                                                                                        required=""
+                                                                                                        class="form-control">
+                                                                                                    <option value=""
+                                                                                                            selected=""
+                                                                                                            disabled="">Chọn
+                                                                                                        sách
+                                                                                                    </option>
+
+
+                                                                                                    @foreach($books as $book)
+
+                                                                                                        <option
+                                                                                                            value="{{ $book->id }}" {{ ($borrow_detail->book_id == $book->id)? "selected":"" }} >{{ $book->name }}
+                                                                                                            [{{ $book->amount }}
+                                                                                                            ]
+                                                                                                        </option>
+
+                                                                                                    @endforeach
+                                                                                                </select>
+
+                                                                                            </div>
+                                                                                        </div> <!-- // end form group -->
+                                                                                    @endif
+                                                                                @endforeach
+
+                                                                            </div> <!-- End col-md-5 -->
+
+                                                                            <div class="col-md-5">
+                                                                                @foreach($borrow_details as $borrow_detail)
+                                                                                    @if($borrow_detail->borrow_id == $borrow->id)
+                                                                                        <div class="form-group">
+                                                                                            <h5>Đặt ngày trả <span
+                                                                                                    class="text-danger">*</span>
+                                                                                            </h5>
+                                                                                            <div class="controls">
+                                                                                                <input type="date"
+                                                                                                       name="expire_date[]"
+                                                                                                       value="{{$borrow_detail->expire_date}}"
+                                                                                                       class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                            </div><!-- End col-md-5 -->
+
+                                                                            <div class="col-md-5">
+
+
+                                                                            </div> <!-- End col-md-5 -->
+                                                                            <div class="col-md-2"
+                                                                                 style="padding-top: 25px;">
+                                                                            </div><!-- End col-md-5 -->
+
+                                                                        </div> <!-- end Row -->
+
+                                                                    </div>    <!-- // End add_item -->
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            {{--        END ADD RETURN BOOK     --}}
+
+                                                            <input type="submit" class="btn btn-rounded btn-info"
+                                                                   onclick="return confirm('Xác nhận bạn đọc trả sách!')"
+                                                                   value="Trả sách">
+                                                            <a href=""
+                                                               class="btn btn-danger" id="delete">Sự cố</a>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endif
+
                                         @endforeach
                                         </tbody>
                                         <tfoot>

@@ -24,7 +24,6 @@
                                             <th>Bạn đọc</th>
                                             <th>Số sách mượn</th>
                                             <th>Trạng thái</th>
-                                            <th>Đánh giá</th>
                                             <th style="width: 25%">Thao tác</th>
                                         </tr>
                                         </thead>
@@ -45,16 +44,49 @@
                                                     @endif
                                                 @endforeach
 
-                                                <td> {{ $borrow->phone }}</td>
-                                                <td><a href="mailto:{{ $borrow->email }}">{{ $borrow->email }}</a></td>
-                                                <td style="color: green; font-weight: bold"> Đúng hạn</td>
+                                                {{--                                                @php--}}
+                                                {{--                                                    $amount_book = DB::table('borrow_details')->where('borrow_id', $borrow['id'])->count('*');--}}
+                                                {{--                                                @endphp--}}
+
+                                                @php
+                                                    $amount_book = 0;
+                                                @endphp
+
+                                                @foreach($borrow_details as $key => $borrow_detail )
+                                                    @foreach($books as $key => $book )
+
+                                                        @if($book->id == $borrow_detail->book_id && $borrow_detail->borrow_id == $borrow->id)
+                                                            <div style="display:none;">  {{ $amount_book++  }}</div>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
                                                 <td>
-                                                    <a href="{{ route('borrow.detail',$borrow->id) }}" onclick="return confirm('Xác nhận bạn đọc trả sách?')"
-                                                       class="btn btn-info">Trả sách</a>
+                                                    {{ $amount_book  }}
+                                                </td>
+
+                                                <td style="font-weight: bold; text-align: center; font-size: 14px">
+                                                    @if( $borrow->status == "Đang mượn")
+                                                        <div style="background-color: #ccc; color: #0045d7;">
+                                                            {{ $borrow->status }}
+                                                        </div>
+                                                    @elseif($borrow->status == "Đã trả")
+                                                        <div style="background-color: #ccc; color: green;">
+                                                            {{ $borrow->status }}
+                                                        </div>
+                                                    @else
+                                                        <div style="background-color: #ccc; color: red;">
+                                                            {{ $borrow->status }}
+                                                        </div>
+                                                    @endif
+
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('borrow.detail',$borrow->id) }}"
+                                                       onclick="return confirm('Xác nhận bạn đọc trả sách?')"
+                                                       class="btn btn-info">In ấn</a>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
                                                        class="btn btn-warning">Chi tiết</a>
-                                                    <a href=""
-                                                       class="btn btn-danger" id="delete">Sự cố</a>
+
                                                 </td>
                                             </tr>
                                         @endforeach

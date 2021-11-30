@@ -17,6 +17,7 @@ class CreateBorrowsTable extends Migration
             $table->id();
             $table->integer('reader_id');
             $table->integer('staff_id');
+            $table->String('status');
             $table->String('note');
             $table->timestamps();
         });

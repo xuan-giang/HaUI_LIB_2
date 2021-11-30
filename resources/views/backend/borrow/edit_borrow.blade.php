@@ -13,7 +13,7 @@
                 <div class="box">
                     <div class="card-header with-border" style="background-color: #0c84ff; color: white">
 
-                        <h2 class="card-title">Tạo yêu cầu mượn sách</h2>
+                        <h2 class="card-title">Cập nhật yêu cầu mượn sách</h2>
 
                     </div>
                     <!-- /.box-header -->
@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col">
 
-                                <form method="post" action="{{ route('borrow.store') }}">
+                                <form method="post" action="{{ route('borrow.update',$borrow->id) }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
@@ -36,14 +36,17 @@
                                                                     <option value="" selected="" disabled="">
                                                                         Chọn bạn đọc
                                                                     </option>
+
                                                                     @foreach($readers as $reader)
                                                                         <option
-                                                                            value="{{ $reader->id }}">{{ $reader->student_code }}
+                                                                            value="{{ $reader->id }}" {{ ($borrow->reader_id == $reader->id)? "selected":"" }} >{{ $reader->student_code }}
                                                                             - {{ $reader->name }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <a href="{{ route('reader.add') }}" style="float: left; margin-top: 1%"
-                                                                   class="btn btn-rounded btn-outline-success mb-5"> Thêm bạn đọc mới</a>
+                                                                <a href="{{ route('reader.add') }}"
+                                                                   style="float: left; margin-top: 1%"
+                                                                   class="btn btn-rounded btn-outline-success mb-5">
+                                                                    Thêm bạn đọc mới</a>
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
@@ -51,24 +54,22 @@
                                                         <div class="form-group" style="margin-right: 15%">
                                                             <h5>Ghi chú</h5>
                                                             <div class="controls">
-                                                                <label for="note">Ghi chú</label><textarea class="form-control" name="note"
-                                                                                                    id="note" rows="3" cols="60" required
-                                                                                                    placeholder="Nhập ghi chú"></textarea>
-
+                                                                <input type="text" class="form-control" name="note"
+                                                                       value="{{ $borrow->note }}">
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                         <div class="form-group" style="display: none">
                                                             <h5>Trạng thái</h5>
                                                             <div class="controls">
                                                                 <input type="text" class="form-control" name="status"
-                                                                       value="Đang mượn">
+                                                                       value="Đã trả">
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                         <div class="form-group" style="display: none">
                                                             <h5>Người xử lý</h5>
                                                             <div class="controls">
                                                                 <input type="text" class="form-control" name="staff_id"
-                                                                          value="{{ Auth::user()->id }}">
+                                                                       value="{{ Auth::user()->id }}">
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
@@ -78,37 +79,50 @@
                                                 <div class="row">
 
                                                     <div class="col-md-5">
+                                                        @foreach($borrow_details as $borrow_detail)
+                                                            @if($borrow_detail->borrow_id == $borrow->id)
+                                                            <div class="form-group">
+                                                                <h5>Tên sách <span class="text-danger">*</span></h5>
+                                                                <div class="controls">
 
-                                                        <div class="form-group">
-                                                            <h5>Tên sách <span class="text-danger">*</span></h5>
-                                                            <div class="controls">
-                                                                <select name="book_id[]" required=""
-                                                                        class="form-control">
-                                                                    <option value="" selected="" disabled="">Chọn sách
-                                                                    </option>
-                                                                    @foreach($books as $book)
-                                                                        <option
-                                                                            value="{{ $book->id }}">{{ $book->name }}
-                                                                            [{{ $book->amount }}]
+                                                                    <select name="book_id[]" required=""
+                                                                            class="form-control">
+                                                                        <option value="" selected="" disabled="">Chọn
+                                                                            sách
                                                                         </option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div> <!-- // end form group -->
 
+
+                                                                        @foreach($books as $book)
+
+                                                                                <option
+                                                                                    value="{{ $book->id }}" {{ ($borrow_detail->book_id == $book->id)? "selected":"" }} >{{ $book->name }}
+                                                                                    [{{ $book->amount }}]
+                                                                                </option>
+
+                                                                        @endforeach
+                                                                    </select>
+
+                                                                </div>
+                                                            </div> <!-- // end form group -->
+                                                            @endif
+                                                        @endforeach
 
                                                     </div> <!-- End col-md-5 -->
 
                                                     <div class="col-md-5">
+                                                        @foreach($borrow_details as $borrow_detail)
+                                                            @if($borrow_detail->borrow_id == $borrow->id)
+                                                                <div class="form-group">
+                                                                    <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
+                                                                    <div class="controls">
+                                                                        <input type="date" name="expire_date[]"
+                                                                               value="{{$borrow_detail->expire_date}}"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                            @endif
 
-                                                        <div class="form-group">
-                                                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
-                                                            <div class="controls">
-                                                                <input type="date" name="expire_date[]"
-                                                                       class="form-control">
-                                                            </div>
-                                                        </div>
-
+                                                        @endforeach
                                                     </div><!-- End col-md-5 -->
 
                                                     <div class="col-md-2" style="padding-top: 25px;">
