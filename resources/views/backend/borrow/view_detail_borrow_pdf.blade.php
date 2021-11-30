@@ -100,7 +100,23 @@
     @php
         $sumFee = 0;
     @endphp
+    @foreach($borrow_details as $key => $borrow_detail )
+        @foreach($books as $key => $book )
+            @if($book['id'] == $borrow_detail['book_id'])
+                <div style="display: none">{{$sumFee += $book['price']}}</div>
+                <tr>
+                    <td>{{ $borrow_detail['id'] }}</td>
+                    <td>{{ $book['name'] }}</td>
+                    <td>{{ $borrow_detail['expire_date'] }}</td>
+                    <td> {{ $book['price'] }} VND</td>
 
+{{--                    <td>{{ date('d-m-Y', strtotime($borrow_detail['expire_date'])) }}</td>--}}
+{{--                    <td> {{ number_format($book['price'], 2, ',', '.') }} VND</td>--}}
+
+                </tr>
+            @endif
+        @endforeach
+    @endforeach
     <tr>
         <td width="80%" colspan="3"><b>Tổng tiền cọc:</b></td>
         <td width="20%" colspan="1">{{ number_format($sumFee, 2, ',', '.') }} VND</td>
