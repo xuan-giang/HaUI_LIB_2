@@ -88,6 +88,10 @@
         <td width="10%"><b>Lớp:</b></td>
         <td width="65%">{{ $class['name'] }} - {{ $class['name_school_year'] }}</td>
     </tr>
+    <tr>
+        <td width="10%"><b>Thời gian mượn:</b></td>
+        <td width="65%">{{ $borrow['created_at']->format('H:i:s') }} {{ date('d-m-Y', strtotime($borrow['created_at'])) }}</td>
+    </tr>
 </table>
 
 <table id="customers" style="margin-top: 3%">

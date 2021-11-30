@@ -96,7 +96,7 @@
         toastr.options =
         {
             "closeButton": true,
-            "progressBar": true
+
         }
     toastr.success("{{ session('message') }}");
     @endif
