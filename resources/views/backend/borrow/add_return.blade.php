@@ -45,9 +45,7 @@
                                                         @endif
                                                     @endforeach
                                                     <td>
-                                                        @php
-                                                            $stt = 0;
-                                                        @endphp
+
                                                         @foreach($borrow_details as $key => $borrow_detail )
                                                             @foreach($books as $key => $book )
 
@@ -57,7 +55,20 @@
                                                             @endforeach
                                                         @endforeach
                                                     </td>
-                                                    <td>{{ $borrow->deposit }}</td>
+                                                    <td>
+                                                        @php
+                                                            $deposit = 0;
+                                                        @endphp
+                                                        @foreach($borrow_details as $key => $borrow_detail )
+                                                            @foreach($books as $key => $book )
+
+                                                                @if($book->id == $borrow_detail->book_id && $borrow_detail->borrow_id == $borrow->id)
+                                                                 <div style="display:none;">  {{ $deposit += $book->price }}</div>
+                                                                @endif
+                                                            @endforeach
+                                                        @endforeach
+                                                        {{ number_format($deposit, 0, ',', '.') }} VND
+                                                    </td>
                                                     <td> {{ $borrow->note }}</td>
                                                     <td>
 

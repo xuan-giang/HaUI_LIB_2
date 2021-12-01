@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
 </head>
-<body>
+<body style=" position: relative;">
 
 
 <table id="customers">
@@ -93,8 +93,15 @@
         <td width="65%">{{ $borrow['created_at']->format('H:i:s') }} {{ date('d-m-Y', strtotime($borrow['created_at'])) }}</td>
     </tr>
 </table>
+@if($borrow['status'] == "Đã trả")
+    <div style="position: absolute ; top: 10%; right: 5%;">
+        {{--    <img src="{{ asset('upload/confirm_return_book.png') }}" style="transform: rotate(45deg);" width="200px">--}}
+        <img src="{{ asset('upload/confirm_return_book.png') }}" width="180px">
+    </div>
+@endif
 
-<table id="customers" style="margin-top: 3%">
+<table id="customers" style="margin-top: 3%;">
+
     <tr>
         <th width="12%">#ID</th>
         <th width="40%">Tên sách</th>

@@ -82,8 +82,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
-                                                       onclick="return confirm('Xác nhận bạn đọc trả sách?')"
-                                                       class="btn btn-info">In ấn</a>
+                                                       class="btn btn-info">Xuất phiếu</a>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
                                                        class="btn btn-warning">Chi tiết</a>
 
