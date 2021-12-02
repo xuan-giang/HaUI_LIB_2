@@ -184,3 +184,20 @@ Route::prefix('borrow')->group(function () {
 
 });
 
+// ISSUES
+
+Route::prefix('issues')->group(function () {
+
+    Route::get('/view', [ReaderController::class, 'issuesView'])->name('issues.view');
+
+    Route::get('/add', [ReaderController::class, 'issuesAdd'])->name('issues.add');
+
+    Route::post('/store', [ReaderController::class, 'issuesStore'])->name('issues.store');
+
+    Route::get('/edit/{id}', [ReaderController::class, 'issuesEdit'])->name('issues.edit');
+
+    Route::post('/update/{id}', [ReaderController::class, 'issuesUpdate'])->name('issues.update');
+
+    Route::get('/delete/{id}', [ReaderController::class, 'issuesDelete'])->name('issues.delete');
+
+});
