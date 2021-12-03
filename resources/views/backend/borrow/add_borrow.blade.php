@@ -42,8 +42,10 @@
                                                                             - {{ $reader->name }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <a href="{{ route('reader.add') }}" style="float: left; margin-top: 1%"
-                                                                   class="btn btn-rounded btn-outline-success mb-5"> Thêm bạn đọc mới</a>
+                                                                <a href="{{ route('reader.add') }}"
+                                                                   style="float: left; margin-top: 1%"
+                                                                   class="btn btn-rounded btn-outline-success mb-5">
+                                                                    Thêm bạn đọc mới</a>
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
@@ -51,9 +53,9 @@
                                                         <div class="form-group" style="margin-right: 15%">
                                                             <h5>Ghi chú</h5>
                                                             <div class="controls">
-                                                                <label for="note">Ghi chú</label><textarea class="form-control" name="note"
-                                                                                                    id="note" rows="3" cols="60" required
-                                                                                                    placeholder="Nhập ghi chú"></textarea>
+                                                                <textarea class="form-control" name="note"
+                                                                          id="note" rows="3" cols="60" required
+                                                                          placeholder="Nhập ghi chú"></textarea>
 
                                                             </div>
                                                         </div> <!-- // end form group -->
@@ -68,7 +70,7 @@
                                                             <h5>Người xử lý</h5>
                                                             <div class="controls">
                                                                 <input type="text" class="form-control" name="staff_id"
-                                                                          value="{{ Auth::user()->id }}">
+                                                                       value="{{ Auth::user()->id }}">
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>

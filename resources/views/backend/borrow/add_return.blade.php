@@ -189,7 +189,7 @@
                                                             <input type="submit" class="btn btn-rounded btn-info"
                                                                    onclick="return confirm('Xác nhận bạn đọc trả sách!')"
                                                                    value="Trả sách">
-                                                            <a href=""
+                                                            <a href="{{ route('issues.add') }}"
                                                                class="btn btn-danger" id="delete">Sự cố</a>
                                                         </form>
                                                     </td>
