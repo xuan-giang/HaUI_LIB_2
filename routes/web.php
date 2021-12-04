@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\School\ClassController;
 use App\Http\Controllers\Backend\School\FacultyController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IssuesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -188,16 +189,16 @@ Route::prefix('borrow')->group(function () {
 
 Route::prefix('issues')->group(function () {
 
-    Route::get('/view', [ReaderController::class, 'issuesView'])->name('issues.view');
+    Route::get('/view', [IssuesController::class, 'issuesView'])->name('issues.view');
 
-    Route::get('/add', [ReaderController::class, 'issuesAdd'])->name('issues.add');
+    Route::get('/add/{id}', [IssuesController::class, 'issuesAdd'])->name('issues.add');
 
-    Route::post('/store', [ReaderController::class, 'issuesStore'])->name('issues.store');
+    Route::post('/store', [IssuesController::class, 'issuesStore'])->name('issues.store');
 
-    Route::get('/edit/{id}', [ReaderController::class, 'issuesEdit'])->name('issues.edit');
+    Route::get('/edit/{id}', [IssuesController::class, 'issuesEdit'])->name('issues.edit');
 
-    Route::post('/update/{id}', [ReaderController::class, 'issuesUpdate'])->name('issues.update');
+    Route::post('/update/{id}', [IssuesController::class, 'issuesUpdate'])->name('issues.update');
 
-    Route::get('/delete/{id}', [ReaderController::class, 'issuesDelete'])->name('issues.delete');
+    Route::get('/delete/{id}', [IssuesController::class, 'issuesDelete'])->name('issues.delete');
 
 });

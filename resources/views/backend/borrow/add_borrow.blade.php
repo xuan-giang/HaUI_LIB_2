@@ -8,7 +8,6 @@
 
 
             <section class="content">
-
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="card-header with-border" style="background-color: #0c84ff; color: white">
