@@ -31,7 +31,7 @@
                                                             <h5>Bạn đọc<span class="text-danger">*</span></h5>
                                                             <div class="controls">
                                                                 @foreach($readers as $reader)
-                                                                    @if($borrow->reader_id == $reader->id)
+                                                                    @if($borrow->reader_id == $reader->id )
                                                                         <option
                                                                             value="{{ $reader->id }}" {{ ($borrow->reader_id == $reader->id)? "selected":"" }} >{{ $reader->student_code }}
                                                                             - {{ $reader->name }}</option>
@@ -63,10 +63,22 @@
                                                                 <input type="text" class="form-control" name="staff_id"
                                                                        value="{{ Auth::user()->id }}">
                                                             </div>
+                                                            <div class="controls" style="display:none;">
+                                                                <input type="text" class="form-control" name="borrow_id"
+                                                                       value="{{ $borrow->id }}">
+                                                            </div>
+                                                            <div class="controls" style="display:none;">
+                                                                <input type="text" class="form-control" name="reader_id"
+                                                                       value="{{ $borrow->reader_id }}">
+                                                            </div>
+                                                            <div class="controls" style="display:none;">
+                                                                <input type="text" class="form-control" name="note"
+                                                                       value="0">
+                                                            </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
                                                 </div>
-{{--cmt2--}}
+                                                {{--cmt2--}}
 
                                                 <div class="row">
 
@@ -80,10 +92,14 @@
                                                                     <option value="" selected="" disabled="">Chọn sách
                                                                     </option>
                                                                     @foreach($books as $book)
-                                                                        <option
-                                                                            value="{{ $book->id }}">{{ $book->name }}
-                                                                            [{{ $book->amount }}]
-                                                                        </option>
+                                                                        @foreach($borrow_details as $borrow_detail)
+                                                                            @if($book->id == $borrow_detail->book_id && $borrow_detail->borrow_id == $borrow->id)
+                                                                                <option
+                                                                                    value="{{ $book->id }}">{{ $book->name }}
+                                                                                    [{{ $book->amount }}]
+                                                                                </option>
+                                                                            @endif
+                                                                        @endforeach
                                                                     @endforeach
                                                                 </select>
                                                             </div>

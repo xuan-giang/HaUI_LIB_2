@@ -112,6 +112,12 @@
                                 <p>Quản lý sách</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('book.view') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Dự trù mua sách</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

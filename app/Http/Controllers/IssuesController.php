@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Borrow;
 use App\Models\BorrowDetail;
+use App\Models\Issues;
 use App\Models\Reader;
 use Illuminate\Http\Request;
 
@@ -36,21 +37,23 @@ class IssuesController extends Controller
 
         $countBook = count($request->book_id);
 
-        $data_borrow = new Borrow();
-        $data_borrow->reader_id = $request->reader_id;
-        $data_borrow->staff_id = $request->staff_id;
-        $data_borrow->status = $request->status;
-        $data_borrow->note = $request->note;
+//        $data_borrow = new Borrow();
+//        $data_borrow->reader_id = $request->reader_id;
+//        $data_borrow->staff_id = $request->staff_id;
+//        $data_borrow->status = $request->status;
+//        $data_borrow->note = $request->note;
 
-        $data_borrow->save();
+//        $data_borrow->save();
 
         if ($countBook != NULL) {
             for ($i = 0; $i < $countBook; $i++) {
-                $data_borrow_detail = new BorrowDetail();
-                $data_borrow_detail->borrow_id = $data_borrow->id;
-                $data_borrow_detail->book_id = $request->book_id[$i];
-                $data_borrow_detail->expire_date = $request->expire_date[$i];
-                $data_borrow_detail->save();
+                $data_issues_detail = new Issues();
+                $data_issues_detail->reader_id = $request->reader_id;
+                $data_issues_detail->staff_id = $request->staff_id;
+                $data_issues_detail->note = $request->note;
+                $data_issues_detail->book_id = $request->book_id[$i];
+                $data_issues_detail->issues_detail = $request->issues_detail[$i];
+                $data_issues_detail->save();
 
                 $data_book = Book::find($request->book_id[$i]);
                 $data_temp = $data_book->amount;
@@ -60,9 +63,9 @@ class IssuesController extends Controller
         }
 
         $notification = array(
-            'message' => 'Đã tạo phiếu mượn thành công!',
+            'message' => 'Đã ghi lại sự cố!',
             'alert-type' => 'success'
         );
-        return redirect()->route('borrow.view')->with($notification);
+        return redirect()->route('return.add')->with($notification);
     }
 }

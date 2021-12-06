@@ -23,7 +23,7 @@
                                             <th style="width: 35%">Chi tiết sách mượn</th>
                                             <th>Tiền cọc</th>
                                             <th style="width: 8%">Ghi chú</th>
-                                            <th style="width: 15%">Thao tác</th>
+                                            <th style="width: 18%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -191,7 +191,7 @@
                                                                    value="Trả sách">
 
                                                             <a href="{{ route('issues.add', $borrow->id) }}"
-                                                               class="btn btn-danger" id="delete">Sự cố</a>
+                                                               class="btn btn-danger" id="delete">Mất sách</a>
                                                         </form>
                                                     </td>
                                                 </tr>
