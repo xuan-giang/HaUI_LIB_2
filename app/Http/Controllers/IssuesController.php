@@ -13,11 +13,13 @@ class IssuesController extends Controller
 {
     public function issuesView()
     {
-        $data['allData'] = Borrow::all();
+        $data['allData'] = Issues::all();
+        $data['borrow'] = Borrow::all();
         $data['borrow_details'] = BorrowDetail::all();
 //        $data['reader'] = Reader::find($data['allData']->reader_id);
         $data['readers'] = Reader::all();
         $data['books'] = Book::all();
+
         return view('backend.borrow.view_issues', $data);
     }
 
