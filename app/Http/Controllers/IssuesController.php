@@ -7,6 +7,7 @@ use App\Models\Borrow;
 use App\Models\BorrowDetail;
 use App\Models\Issues;
 use App\Models\Reader;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IssuesController extends Controller
@@ -19,7 +20,7 @@ class IssuesController extends Controller
 //        $data['reader'] = Reader::find($data['allData']->reader_id);
         $data['readers'] = Reader::all();
         $data['books'] = Book::all();
-
+        $data['users'] = User::all();
         return view('backend.borrow.view_issues', $data);
     }
 

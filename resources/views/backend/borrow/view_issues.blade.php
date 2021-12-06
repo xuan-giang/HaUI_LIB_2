@@ -24,25 +24,24 @@
                                             <th>Sách</th>
                                             <th>Nội dung sự cố</th>
                                             <th>Người xử lý</th>
-                                            <th style="width: 25%">Thao tác</th>
+                                            <th style="width: 20%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
                                         @foreach($allData as $key => $issues )
                                             <tr>
-
+                                                <td style="width: 5%"><a href="#">{{ $issues->id }}</a></td>
                                                 @foreach($readers as $key => $reader )
                                                     @if($reader->id == $issues->reader_id)
                                                         <td>{{ $reader->student_code }} - {{ $reader->name }}</td>
                                                     @endif
                                                 @endforeach
 
-                                                <td style="width: 10%"><a href="#">{{ $issues->id }}</a></td>
 
-                                                @foreach($readers as $key => $reader )
-                                                    @if($reader->id == $issues->reader_id)
-                                                        <td>{{ $reader->name }}</td>
+                                                @foreach($books as $key => $book )
+                                                    @if($book->id == $issues->book_id)
+                                                        <td>{{ $book->name }}</td>
                                                     @endif
                                                 @endforeach
 
@@ -50,9 +49,6 @@
                                                 {{--                                                    $amount_book = DB::table('borrow_details')->where('borrow_id', $borrow['id'])->count('*');--}}
                                                 {{--                                                @endphp--}}
 
-                                                @php
-                                                    $amount_book = 0;
-                                                @endphp
 
 {{--                                                @foreach($borrow_details as $key => $borrow_detail )--}}
 {{--                                                    @foreach($books as $key => $book )--}}
@@ -63,24 +59,16 @@
 {{--                                                    @endforeach--}}
 {{--                                                @endforeach--}}
                                                 <td>
-                                                    {{ $amount_book  }}
+                                                    {{ $issues->issues_detail }}
                                                 </td>
 
-                                                <td style="font-weight: bold; text-align: center; font-size: 14px">
-{{--                                                    @if( $borrow->status == "Đang mượn")--}}
-{{--                                                        <div style="background-color: #ccc; color: #0045d7;">--}}
-{{--                                                            {{ $borrow->status }}--}}
-{{--                                                        </div>--}}
-{{--                                                    @elseif($borrow->status == "Đã trả")--}}
-{{--                                                        <div style="background-color: #ccc; color: green;">--}}
-{{--                                                            {{ $borrow->status }}--}}
-{{--                                                        </div>--}}
-{{--                                                    @else--}}
-{{--                                                        <div style="background-color: #ccc; color: red;">--}}
-{{--                                                            {{ $borrow->status }}--}}
-{{--                                                        </div>--}}
-{{--                                                    @endif--}}
+                                                <td style="text-align: center; font-size: 14px">
 
+                                                    @foreach($users as $key => $user)
+                                                        @if($issues->staff_id == $user->id)
+                                                            {{ $user->name }}
+                                                        @endif
+                                                    @endforeach
                                                 </td>
                                                 <td>
 {{--                                                    <a href="{{ route('borrow.detail',$borrow->id) }}"--}}
