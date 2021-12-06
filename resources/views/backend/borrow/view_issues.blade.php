@@ -62,7 +62,7 @@
                                                     {{ $issues->issues_detail }}
                                                 </td>
 
-                                                <td style="text-align: center; font-size: 14px">
+                                                <td style="text-align: center;">
 
                                                     @foreach($users as $key => $user)
                                                         @if($issues->staff_id == $user->id)
