@@ -22,7 +22,7 @@
                                             <th style="width: 10%">ID</th>
                                             <th>Người đọc</th>
                                             <th>Sách</th>
-                                            <th>Nội dung</th>
+                                            <th>Nội dung sự cố</th>
                                             <th>Ghi chú</th>
                                             <th style="width: 25%">Thao tác</th>
                                         </tr>
