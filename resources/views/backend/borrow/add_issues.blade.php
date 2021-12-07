@@ -165,7 +165,14 @@
                                 <select name="book_id[]" required="" class="form-control">
                                     <option value="" selected="" disabled="">Chọn sách</option>
                                     @foreach($books as $book)
-                                        <option value="{{ $book->id }}">{{ $book->name }} [{{ $book->amount }}]</option>
+                                        @foreach($borrow_details as $borrow_detail)
+                                            @if($book->id == $borrow_detail->book_id && $borrow_detail->borrow_id == $borrow->id)
+                                                <option
+                                                    value="{{ $book->id }}">{{ $book->name }}
+                                                    [{{ $book->amount }}]
+                                                </option>
+                                            @endif
+                                        @endforeach
                                     @endforeach
                                 </select>
                             </div>

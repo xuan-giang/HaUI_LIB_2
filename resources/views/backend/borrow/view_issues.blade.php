@@ -19,9 +19,10 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th style="width: 10%">ID</th>
+                                            <th style="width: 2%">ID</th>
                                             <th>Người đọc</th>
                                             <th>Sách</th>
+                                            <th>Giá trị thiệt hại</th>
                                             <th>Nội dung sự cố</th>
                                             <th>Người xử lý</th>
                                             <th style="width: 20%">Thao tác</th>
@@ -31,7 +32,7 @@
 
                                         @foreach($allData as $key => $issues )
                                             <tr>
-                                                <td style="width: 5%"><a href="#">{{ $issues->id }}</a></td>
+                                                <td><a href="#">{{ $issues->id }}</a></td>
                                                 @foreach($readers as $key => $reader )
                                                     @if($reader->id == $issues->reader_id)
                                                         <td>{{ $reader->student_code }} - {{ $reader->name }}</td>
@@ -42,6 +43,7 @@
                                                 @foreach($books as $key => $book )
                                                     @if($book->id == $issues->book_id)
                                                         <td>{{ $book->name }}</td>
+                                                        <td><b style="color: red;">{{ number_format($book->price, 0, ',', '.') }} VND</b></td>
                                                     @endif
                                                 @endforeach
 
@@ -73,9 +75,8 @@
                                                 <td>
 {{--                                                    <a href="{{ route('borrow.detail',$borrow->id) }}"--}}
 {{--                                                       class="btn btn-info">Xuất phiếu</a>--}}
-                                                    <a href=""
-                                                       class="btn btn-warning">Chi tiết</a>
-
+                                                    <a href="" class="btn btn-info">Chi tiết</a>
+                                                    <a href="" class="btn btn-warning">Thêm dự trù</a>
                                                 </td>
                                             </tr>
                                         @endforeach
