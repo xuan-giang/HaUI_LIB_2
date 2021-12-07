@@ -47,19 +47,6 @@
                                                     @endif
                                                 @endforeach
 
-                                                {{--                                                @php--}}
-                                                {{--                                                    $amount_book = DB::table('borrow_details')->where('borrow_id', $borrow['id'])->count('*');--}}
-                                                {{--                                                @endphp--}}
-
-
-{{--                                                @foreach($borrow_details as $key => $borrow_detail )--}}
-{{--                                                    @foreach($books as $key => $book )--}}
-
-{{--                                                        @if($book->id == $borrow_detail->book_id && $borrow_detail->borrow_id == $borrow->id)--}}
-{{--                                                            <div style="display:none;">  {{ $amount_book++  }}</div>--}}
-{{--                                                        @endif--}}
-{{--                                                    @endforeach--}}
-{{--                                                @endforeach--}}
                                                 <td>
                                                     {{ $issues->issues_detail }}
                                                 </td>
