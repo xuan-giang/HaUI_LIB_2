@@ -63,7 +63,9 @@
 {{--                                                    <a href="{{ route('borrow.detail',$borrow->id) }}"--}}
 {{--                                                       class="btn btn-info">Xuất phiếu</a>--}}
                                                     <a href="" class="btn btn-info">Chi tiết</a>
-                                                    <a href="" class="btn btn-warning">Thêm dự trù</a>
+                                                    <a href=""
+                                                       onclick="return confirm('Thêm cuốn sách này vào danh sách dự trù mua sách?')"
+                                                       class="btn btn-warning">Thêm dự trù</a>
                                                 </td>
                                             </tr>
                                         @endforeach
