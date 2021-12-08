@@ -14,7 +14,7 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <a href="{{ route('borrow.add') }}" style="float: right; margin-right: 3%"
+                                    <a class="btn bg-gradient-primary" href="{{ route('borrow.add') }}" style="float: right; margin-right: 3%"
                                        class="btn btn-rounded btn-success "> Tạo yêu cầu mượn</a>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
@@ -82,9 +82,9 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
-                                                       class="btn btn-info">Xuất phiếu</a>
+                                                       class="btn btn-info btn-sm">Xuất phiếu</a>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
-                                                       class="btn btn-warning">Chi tiết</a>
+                                                       class="btn btn-warning btn-sm">Chi tiết</a>
 
                                                 </td>
                                             </tr>

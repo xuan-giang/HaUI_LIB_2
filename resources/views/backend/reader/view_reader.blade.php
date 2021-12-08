@@ -15,7 +15,7 @@
                             <div class="box-body">
                                 <div class="table-responsive">
                                     <a href="{{ route('reader.add') }}" style="float: right; margin-right: 3%"
-                                       class="btn btn-rounded btn-success mb-5"> Thêm mới</a>
+                                       class="btn btn-rounded btn-success"> Thêm mới</a>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
