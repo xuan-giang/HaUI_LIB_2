@@ -82,9 +82,9 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
-                                                       class="btn btn-info btn-sm">Xuất phiếu</a>
+                                                       class="btn bg-gradient-info btn-sm">Xuất phiếu</a>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
-                                                       class="btn btn-warning btn-sm">Chi tiết</a>
+                                                       class="btn bg-gradient-warning btn-sm">Chi tiết</a>
 
                                                 </td>
                                             </tr>

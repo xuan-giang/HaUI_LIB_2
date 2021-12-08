@@ -186,12 +186,12 @@
 
                                                             {{--        END ADD RETURN BOOK     --}}
 
-                                                            <input type="submit" class="btn btn-rounded btn-info"
+                                                            <input type="submit" class="btn btn-rounded btn-info btn-sm"
                                                                    onclick="return confirm('Xác nhận bạn đọc trả sách!')"
                                                                    value="Trả sách">
 
                                                             <a href="{{ route('issues.add', $borrow->id) }}"
-                                                               class="btn btn-danger" id="delete">Mất sách</a>
+                                                               class="btn btn-danger btn-sm" id="delete">Mất sách</a>
                                                         </form>
                                                     </td>
                                                 </tr>
