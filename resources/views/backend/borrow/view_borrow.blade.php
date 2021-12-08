@@ -5,7 +5,7 @@
             <!-- Content Header (Page header) -->
             <!-- Main content -->
             <section class="content">
-                <div class="row" style="margin-left: 3%">
+                <div class="row" style="margin-left: 3%; margin-right: 2%;">
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
@@ -22,9 +22,9 @@
                                             <th style="width: 10%">Mã phiếu</th>
                                             <th>Mã sinh viên</th>
                                             <th>Bạn đọc</th>
-                                            <th>Số sách mượn</th>
+                                            <th style="width: 12%">Số sách mượn</th>
                                             <th>Trạng thái</th>
-                                            <th style="width: 25%">Thao tác</th>
+                                            <th style="width: 16%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>

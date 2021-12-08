@@ -17,13 +17,13 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th style="width: 8%">Mã phiếu</th>
+                                            <th style="width: 6%">Mã phiếu</th>
                                             <th style="width: 10%">Mã sinh viên</th>
                                             <th>Bạn đọc</th>
-                                            <th style="width: 35%">Chi tiết sách mượn</th>
+                                            <th style="width: 32%">Chi tiết sách mượn</th>
                                             <th>Tiền cọc</th>
-                                            <th style="width: 8%">Ghi chú</th>
-                                            <th style="width: 18%">Thao tác</th>
+                                            <th style="width: 10%">Ghi chú</th>
+                                            <th style="width: 20%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -189,7 +189,8 @@
                                                             <input type="submit" class="btn btn-rounded btn-info btn-sm"
                                                                    onclick="return confirm('Xác nhận bạn đọc trả sách!')"
                                                                    value="Trả sách">
-
+                                                            <a href="{{ route('issues.add', $borrow->id) }}"
+                                                               class="btn btn-warning btn-sm" id="delete">Gia hạn</a>
                                                             <a href="{{ route('issues.add', $borrow->id) }}"
                                                                class="btn btn-danger btn-sm" id="delete">Mất sách</a>
                                                         </form>
