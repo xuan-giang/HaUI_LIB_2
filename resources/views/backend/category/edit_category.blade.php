@@ -5,7 +5,7 @@
     <div class="content-wrapper">
         <div class="container-full">
             <!-- Content Header (Page header) -->
-            <section class="content">
+            <section class="content" style="margin-left: 5%; margin-right: 15%;">
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
@@ -30,8 +30,8 @@
                                                 </div>
                                             </div>
                                             <div class="text-xs-right">
-                                                <input type="submit" class="btn btn-rounded btn-info mb-5"
-                                                       value="Submit">
+                                                <input type="submit" class="btn btn-rounded bg-gradient-info mb-5"
+                                                       value="Cập nhật">
                                             </div>
                                         </div>
                                     </div>
