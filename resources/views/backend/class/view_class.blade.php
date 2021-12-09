@@ -5,7 +5,7 @@
             <!-- Content Header (Page header) -->
             <!-- Main content -->
             <section class="content">
-                <div class="row" style="margin-left: 3%">
+                <div class="row" style="margin-left: 3%; margin-right: 3%">
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
@@ -15,7 +15,7 @@
                             <div class="box-body">
                                 <div class="table-responsive">
                                     <a href="{{ route('class.add') }}" style="float: right; margin-right: 3%"
-                                       class="btn btn-rounded btn-success mb-5"> Thêm mới</a>
+                                       class="btn btn-rounded btn-success"> Thêm mới</a>
                                     <table id="example1" class="table table-bordered table-striped" >
                                         <thead>
                                         <tr>
@@ -24,7 +24,7 @@
                                             <th>Khoá</th>
                                             <th>Số lượng sinh viên</th>
                                             <th>Giáo viên chủ nhiệm</th>
-                                            <th width="25%">Thao tác</th>
+                                            <th width="15%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -36,7 +36,7 @@
                                                 <td> {{ $class->amount_students }}</td>
                                                 <td> {{ $class->teacher_manage }}</td>
 
-                                                <td>
+                                                <td style="text-align: center">
                                                     <a href="{{ route('class.edit',$class->id) }}"
                                                        class="btn btn-info">Edit</a>
                                                     <a href="{{ route('class.delete',$class->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
