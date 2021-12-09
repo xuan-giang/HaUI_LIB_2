@@ -5,7 +5,7 @@
             <!-- Content Header (Page header) -->
             <!-- Main content -->
             <section class="content">
-                <div class="row" style="margin-left: 3%">
+                <div class="row" style="margin-left: 3%; margin-right: 3%">
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
@@ -15,14 +15,14 @@
                             <div class="box-body">
                                 <div class="table-responsive">
                                     <a href="{{ route('category.add') }}" style="float: right; margin-right: 3%"
-                                       class="btn btn-rounded btn-success mb-5"> Thêm mới</a>
+                                       class="btn btn-rounded btn-success"> Thêm mới</a>
                                     <table id="example1" class="table table-bordered table-striped" >
                                         <thead>
                                         <tr>
                                             <th width="5%" >STT</th>
                                             <th>Tên danh mục</th>
                                             <th>Số lượng đầu sách</th>
-                                            <th width="25%">Thao tác</th>
+                                            <th width="12%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
