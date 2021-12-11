@@ -19,7 +19,7 @@
                                     <table id="example1" class="table table-bordered table-striped" >
                                         <thead>
                                         <tr>
-                                            <th width="5%" >STT</th>
+                                            <th width="3%" >STT</th>
                                             <th>Tên lớp</th>
                                             <th>Khoá</th>
                                             <th>Số lượng sinh viên</th>

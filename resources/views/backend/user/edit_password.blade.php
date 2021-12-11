@@ -7,7 +7,7 @@
             <!-- Content Header (Page header) -->
 
 
-            <section class="content" style="margin: 0 5%">
+            <section class="content" style="margin-left: 5%; margin-right: 48%">
 
                 <!-- Basic Forms -->
                 <div class="box">
