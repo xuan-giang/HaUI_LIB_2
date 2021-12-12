@@ -38,9 +38,9 @@
 
                                                 <td style="text-align: center">
                                                     <a href="{{ route('class.edit',$class->id) }}"
-                                                       class="btn btn-info">Edit</a>
+                                                       class="btn btn-info btn-sm">Edit</a>
                                                     <a href="{{ route('class.delete',$class->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
-                                                       class="btn btn-danger" id="delete">Delete</a>
+                                                       class="btn btn-danger btn-sm" id="delete">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

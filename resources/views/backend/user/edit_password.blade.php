@@ -9,7 +9,7 @@
 
             <section class="content" style="margin-left: 5%; margin-right: 48%">
 
-                <!-- Basic Forms -->
+
                 <div class="box">
                     <div class="box-header with-border">
                         <h4 class="box-title">Thay đổi mật khẩu</h4>
