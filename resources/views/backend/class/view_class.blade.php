@@ -14,7 +14,7 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <a href="{{ route('class.add') }}" style="float: right; margin-right: 3%"
+                                    <a href="{{ route('class.add') }}" style="float: right; margin-right: 4%"
                                        class="btn btn-rounded btn-success"> Thêm mới</a>
                                     <table id="example1" class="table table-bordered table-striped" >
                                         <thead>
