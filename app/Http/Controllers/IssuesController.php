@@ -17,7 +17,6 @@ class IssuesController extends Controller
         $data['allData'] = Issues::all();
         $data['borrow'] = Borrow::all();
         $data['borrow_details'] = BorrowDetail::all();
-//        $data['reader'] = Reader::find($data['allData']->reader_id);
         $data['readers'] = Reader::all();
         $data['books'] = Book::all();
         $data['users'] = User::all();
@@ -39,14 +38,6 @@ class IssuesController extends Controller
         $NOTIFICATION_NULL_BOOK     = "";
 
         $countBook = count($request->book_id);
-
-//        $data_borrow = new Borrow();
-//        $data_borrow->reader_id = $request->reader_id;
-//        $data_borrow->staff_id = $request->staff_id;
-//        $data_borrow->status = $request->status;
-//        $data_borrow->note = $request->note;
-
-//        $data_borrow->save();
 
         if ($countBook != NULL) {
             for ($i = 0; $i < $countBook; $i++) {
