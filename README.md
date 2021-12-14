@@ -15,5 +15,5 @@ Công nghệ áp dụng
 - Framework Laravel 8.x
 - Thư viện Bootstrap
 - Cơ sở dữ liệu MySQL
-- Template Admin Panel AldminLTE
+- Template Admin Panel AdminLTE
 
