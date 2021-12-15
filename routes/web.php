@@ -208,16 +208,16 @@ Route::prefix('issues')->group(function () {
 
 Route::prefix('statistical')->group(function () {
 
-    Route::get('/view', [StatisticalController::class, 'issuesView'])->name('issues.view');
+    Route::get('/view', [StatisticalController::class, 'statisticalView'])->name('statistical.view');
 
-    Route::get('/add/{id}', [StatisticalController::class, 'issuesAdd'])->name('issues.add');
+    Route::get('/add/{id}', [StatisticalController::class, 'statisticalAdd'])->name('statistical.add');
 
-    Route::post('/store', [StatisticalController::class, 'issuesStore'])->name('issues.store');
+    Route::post('/store', [StatisticalController::class, 'statisticalStore'])->name('statistical.store');
 
-    Route::get('/edit/{id}', [StatisticalController::class, 'issuesEdit'])->name('issues.edit');
+    Route::get('/edit/{id}', [StatisticalController::class, 'statisticalEdit'])->name('statistical.edit');
 
-    Route::post('/update/{id}', [StatisticalController::class, 'issuesUpdate'])->name('issues.update');
+    Route::post('/update/{id}', [StatisticalController::class, 'statisticalUpdate'])->name('statistical.update');
 
-    Route::get('/delete/{id}', [StatisticalController::class, 'issuesDelete'])->name('issues.delete');
+    Route::get('/delete/{id}', [StatisticalController::class, 'statisticalDelete'])->name('statistical.delete');
 
 });
