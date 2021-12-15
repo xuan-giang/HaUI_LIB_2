@@ -30,11 +30,9 @@
                                                         <div class="form-group" style="margin-right: 5%">
                                                             <h5>Bạn đọc<span class="text-danger">*</span></h5>
                                                             <div class="controls">
-                                                                <select name="reader_id" required=""
+                                                                <select name="reader_id" id="reader_id1" required=""
                                                                         class="form-control">
-                                                                    <option value="" selected="" disabled="">
-                                                                        Chọn bạn đọc
-                                                                    </option>
+                                                                    <option></option>
                                                                     @foreach($readers as $reader)
                                                                         <option
                                                                             value="{{ $reader->id }}">{{ $reader->student_code }}
@@ -196,6 +194,17 @@
                 counter -= 1
             });
 
+        });
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+
+        $("#reader_id1").select2({
+            placeholder: "Chọn bạn đọc",
+            allowClear: true
         });
     </script>
 
