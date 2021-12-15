@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\School\FacultyController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IssuesController;
+use App\Http\Controllers\StatisticalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -200,5 +201,23 @@ Route::prefix('issues')->group(function () {
     Route::post('/update/{id}', [IssuesController::class, 'issuesUpdate'])->name('issues.update');
 
     Route::get('/delete/{id}', [IssuesController::class, 'issuesDelete'])->name('issues.delete');
+
+});
+
+// Statistical
+
+Route::prefix('statistical')->group(function () {
+
+    Route::get('/view', [StatisticalController::class, 'issuesView'])->name('issues.view');
+
+    Route::get('/add/{id}', [StatisticalController::class, 'issuesAdd'])->name('issues.add');
+
+    Route::post('/store', [StatisticalController::class, 'issuesStore'])->name('issues.store');
+
+    Route::get('/edit/{id}', [StatisticalController::class, 'issuesEdit'])->name('issues.edit');
+
+    Route::post('/update/{id}', [StatisticalController::class, 'issuesUpdate'])->name('issues.update');
+
+    Route::get('/delete/{id}', [StatisticalController::class, 'issuesDelete'])->name('issues.delete');
 
 });
