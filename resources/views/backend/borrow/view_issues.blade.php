@@ -14,8 +14,6 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-{{--                                    <a href="{{ route('issues.add') }}" style="float: right; margin-right: 3%"--}}
-{{--                                       class="btn btn-rounded btn-success "> Nhập sự cố</a>--}}
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
@@ -60,8 +58,6 @@
                                                     @endforeach
                                                 </td>
                                                 <td>
-{{--                                                    <a href="{{ route('borrow.detail',$borrow->id) }}"--}}
-{{--                                                       class="btn btn-info">Xuất phiếu</a>--}}
                                                     <a href="" class="btn btn-info">Chi tiết</a>
                                                     <a href=""
                                                        onclick="return confirm('Thêm cuốn sách này vào danh sách dự trù mua sách?')"
