@@ -161,8 +161,7 @@
     </tr>
 </table>
 <br> <br>
-<i style="font-size: 10px; float: right;">Xuất phiếu ngày : {{ date("d/m/Y") }} - Thư viện Trường Đại Học Công Nghiệp Hà
-    Nội</i>
+<i style="font-size: 10px; float: right;">Xuất phiếu ngày : {{ date("d/m/Y") }} - Thư viện trường Đại Học Công Nghiệp Hà Nội</i>
 
 </body>
 </html>
