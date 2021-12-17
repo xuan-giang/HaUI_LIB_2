@@ -18,7 +18,7 @@
                                         <thead>
                                         <tr>
                                             <th style="width: 6%">Mã phiếu</th>
-                                            <th style="width: 10%">Mã sinh viên</th>
+                                            <th style="width: 8%">Mã sinh viên</th>
                                             <th>Bạn đọc</th>
                                             <th style="width: 32%">Chi tiết sách mượn</th>
                                             <th>Tiền cọc</th>

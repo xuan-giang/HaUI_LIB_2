@@ -4,6 +4,7 @@
     <title>
         Xuất phiếu
     </title>
+    <link rel="icon" href="{{ asset('upload/icon_sys.jpg') }}"/>
     <style>
         #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -50,6 +51,7 @@
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+
 </head>
 <body style=" position: relative;">
 

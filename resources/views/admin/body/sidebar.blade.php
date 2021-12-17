@@ -156,19 +156,25 @@
                         <li class="nav-item">
                             <a href="pages/error/developing.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thống kê theo bạn đọc</p>
+                                <p>Bạn đọc</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/error/developing.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thống kê theo danh mục</p>
+                                <p>Danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/error/developing.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thống kê theo đầu sách</p>
+                                <p>Sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/error/developing.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Phiếu mượn</p>
                             </a>
                         </li>
                     </ul>
