@@ -188,7 +188,6 @@ class BorrowController extends Controller
 
     public function borrowDetail($borrow_id)
     {
-//        $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
         $data['borrow'] = Borrow::find($borrow_id);
         $data['borrow_details'] = BorrowDetail::all()->where('borrow_id', $borrow_id);
         $data['reader'] = Reader::find($data['borrow']->reader_id);
