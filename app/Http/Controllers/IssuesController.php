@@ -34,9 +34,6 @@ class IssuesController extends Controller
 
     public function issuesStore(Request $request)
     {
-        $CHECK_STATUS_AMOUNT_BOOK   = 0;
-        $NOTIFICATION_NULL_BOOK     = "";
-
         $countBook = count($request->book_id);
 
         if ($countBook != NULL) {
