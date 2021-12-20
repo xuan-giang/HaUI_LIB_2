@@ -38,8 +38,6 @@
                                             </div>
                                         </form>
                                     </div>
-{{--                                    <a href="{{ route('faculty.add') }}" style="float: right; margin-right: 3%"--}}
-{{--                                       class="btn btn-rounded btn-success mb-5"> Thêm mới</a>--}}
                                     <div class="box-header with-border">
                                         <h3 class="box-title">Danh sách các khoa đào tạo</h3>
                                     </div>

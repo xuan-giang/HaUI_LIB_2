@@ -120,22 +120,7 @@
                                                     </div>
                                                 </div> <!-- End Col Md-6 -->
 
-                                                {{--                                                <div class="col-md-6" >--}}
-                                                {{--                                                    <div class="form-group">--}}
-                                                {{--                                                        <h5>Ảnh đại diện <span class="text-danger">*</span></h5>--}}
-                                                {{--                                                        <div class="controls">--}}
-                                                {{--                                                            <input type="file" name="image" class="form-control" id="image" >  </div>--}}
-                                                {{--                                                    </div>--}}
 
-                                                {{--                                                    <div class="form-group">--}}
-                                                {{--                                                        <div class="controls">--}}
-                                                {{--                                                            <img id="showImage" src="{{ (!empty($user->image))? url('upload/user_images/'.$user->image):url('upload/no_image.jpg') }}" style="width: 100px; width: 100px; border: 1px solid #000000;">--}}
-
-                                                {{--                                                        </div>--}}
-                                                {{--                                                    </div>--}}
-
-
-                                                {{--                                                </div><!-- End Col Md-6 -->--}}
 
 
                                             </div> <!-- End Row -->
