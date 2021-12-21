@@ -172,7 +172,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/error/developing.html" class="nav-link">
+                            <a href="{{ route('statistical.view.borrow') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Phiếu mượn</p>
                             </a>

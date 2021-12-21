@@ -210,6 +210,8 @@ Route::prefix('statistical')->group(function () {
 
     Route::get('/view', [StatisticalController::class, 'statisticalView'])->name('statistical.view');
 
+    Route::get('/view/borrow', [StatisticalController::class, 'statisticalViewBorrow'])->name('statistical.view.borrow');
+
     Route::get('/add/{id}', [StatisticalController::class, 'statisticalAdd'])->name('statistical.add');
 
     Route::post('/store', [StatisticalController::class, 'statisticalStore'])->name('statistical.store');
