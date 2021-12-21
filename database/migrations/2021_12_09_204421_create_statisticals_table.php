@@ -15,6 +15,10 @@ class CreateStatisticalsTable extends Migration
     {
         Schema::create('statisticals', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->integer('amount_book');
+            $table->integer('amount_borrow');
+            $table->integer('amount_return');
             $table->timestamps();
         });
     }

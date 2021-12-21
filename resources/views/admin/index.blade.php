@@ -12,7 +12,7 @@
                 $user = DB::table('users')->count('*');
                 $book = DB::table('books')->count('*');
                 $category = DB::table('categories')->count('*');
-
+                $borrow = DB::table('borrows')->count('*');
                 ?>
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>
@@ -47,7 +47,7 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('category.view') }}" class="small-box-footer">Xem <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -63,7 +63,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('book.view') }}" class="small-box-footer">Xem <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -73,14 +73,14 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{!! $category !!}</h3>
+                            <h3>{!! $reader !!}</h3>
 
                             <p>Bạn đọc</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('reader.view') }}" class="small-box-footer">Xem <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -88,14 +88,14 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>{!! $user !!}</h3>
+                            <h3>{!! $borrow !!}</h3>
 
-                            <p>Người dùng</p>
+                            <p>Số lượt mượn sách</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('borrow.view') }}" class="small-box-footer">Xem <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

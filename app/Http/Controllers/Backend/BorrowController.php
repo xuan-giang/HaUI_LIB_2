@@ -8,9 +8,13 @@ use App\Models\Borrow;
 use App\Models\BorrowDetail;
 use App\Models\Reader;
 use App\Models\ReturnDetail;
+use App\Models\statistical;
 use App\Models\StudentClass;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use PDF;
+use function Illuminate\Support\Facades\Request;
 
 class BorrowController extends Controller
 {
@@ -42,8 +46,11 @@ class BorrowController extends Controller
 
     public function borrowStore(Request $request)
     {
-        $CHECK_STATUS_AMOUNT_BOOK   = 0;
-        $NOTIFICATION_NULL_BOOK     = "";
+        $CHECK_STATUS_AMOUNT_BOOK = 0;
+        $NOTIFICATION_NULL_BOOK = "";
+
+        $amount_book = 0;
+        $amount_borrow = 0;
 
         $countBook = count($request->book_id);
 
@@ -54,6 +61,38 @@ class BorrowController extends Controller
         $data_borrow->note = $request->note;
 
         $data_borrow->save();
+
+        // Xử lý phân tích thống kê
+//        $amount_borrow++;
+//        $amount_book = $countBook;
+//        $idCheck = DB::table('statisticals')
+//            ->where('date', '=', Carbon::today()->format('Y m D'))
+//            ->value('id');
+//        if(DB::table('statisticals')->where('date', '=', Carbon::today()->format('Y m D'))->value('id') != null){
+//            $statis = statistical::find($idCheck);
+//            $statis->amount_borrow = $amount_borrow;
+//            $statis->amount_book = $amount_book;
+//            $statis->date = Carbon::now();
+//            $statis->amount_return = 0;
+//            $statis->save();
+//        }else{
+//            $idCheck = DB::table('statisticals')
+//                ->where('date', '=', Carbon::today()->format('Y m D'))
+//                ->value('id');
+//
+//
+//            $statistical = new statistical();
+//            $statistical->amount_borrow = $amount_borrow;
+//            $statistical->amount_book = $amount_book;
+//            $statistical->date = Carbon::now();
+//            $statistical->amount_return = 0;
+//
+//            $statistical->save();
+//        }
+
+
+
+// Kết thúc xử lý phân tích thống kê
 
         if ($countBook != NULL) {
             for ($i = 0; $i < $countBook; $i++) {
@@ -77,10 +116,11 @@ class BorrowController extends Controller
         return redirect()->route('borrow.view')->with($notification);
     }
 
-    public function borrowStoreReturn(Request $request)
+    public
+    function borrowStoreReturn(Request $request)
     {
-        $CHECK_STATUS_AMOUNT_BOOK   = 0;
-        $NOTIFICATION_NULL_BOOK     = "";
+        $CHECK_STATUS_AMOUNT_BOOK = 0;
+        $NOTIFICATION_NULL_BOOK = "";
 
         $countBook = count($request->book_id);
 
@@ -113,7 +153,8 @@ class BorrowController extends Controller
         return redirect()->route('borrow.view')->with($notification);
     }
 
-    public function borrowEdit($id)
+    public
+    function borrowEdit($id)
     {
         $editData['borrow'] = Borrow::find($id);
         $editData['readers'] = Reader::all();
@@ -123,7 +164,8 @@ class BorrowController extends Controller
     }
 
 
-    public function borrowUpdate(Request $request, $id)
+    public
+    function borrowUpdate(Request $request, $id)
     {
 
         $data = Reader::find($id);
@@ -172,7 +214,8 @@ class BorrowController extends Controller
     }
 
 
-    public function readerDelete($id)
+    public
+    function readerDelete($id)
     {
         $user = Reader::find($id);
         $user->delete();
@@ -186,7 +229,8 @@ class BorrowController extends Controller
 
     }
 
-    public function borrowDetail($borrow_id)
+    public
+    function borrowDetail($borrow_id)
     {
         $data['borrow'] = Borrow::find($borrow_id);
         $data['borrow_details'] = BorrowDetail::all()->where('borrow_id', $borrow_id);
