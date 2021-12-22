@@ -33,6 +33,7 @@ class BorrowController extends Controller
     {
         $data['readers'] = Reader::all();
         $data['books'] = Book::all();
+
         return view('backend.borrow.add_borrow', $data);
     }
 

@@ -7,8 +7,11 @@ use App\Models\Borrow;
 use App\Models\BorrowDetail;
 use App\Models\Issues;
 use App\Models\Reader;
+use App\Models\statistical;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IssuesController extends Controller
 {
@@ -52,6 +55,50 @@ class IssuesController extends Controller
                 $data_book->save();
             }
         }
+
+        // Xử lý phân tích thống kê
+        $amount_issue = 0;
+
+        $amount_book = $countBook;
+
+        $idCheck = DB::table('statisticals')
+            ->whereDate('date', date('Y-m-d'))->value('id');
+
+        $amountReturn = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_return');
+
+        $amountBookReturn = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_book_return');
+
+        $amountBorrow = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_borrow');
+
+        $amountBookBorrow = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_book_borrow');
+
+        if ($idCheck != null) {
+            $statis = statistical::find($idCheck);
+            $statis->amount_issue += 1;
+            $statis->amount_book_issue += $countBook;
+            $statis->date = Carbon::now();
+            $statis->amount_return = $amountReturn;
+            $statis->amount_book_return = $amountBookReturn;
+            $statis->amount_borrow = $amountBorrow;
+            $statis->amount_book_borrow = $amountBookBorrow;
+            $statis->save();
+        } else {
+            $amount_issue += 1;
+            $statistical = new statistical();
+            $statistical->amount_issue = $amount_issue;
+            $statistical->amount_book_issue = $amount_book;
+            $statistical->date = Carbon::now();
+            $statistical->amount_return = 0;
+            $statistical->amount_book_return = 0;
+            $statistical->amount_borrow = 0;
+            $statistical->amount_book_borrow = 0;
+            $statistical->save();
+        }
+        // Kết thúc xử lý phân tích thống kê
 
         $notification = array(
             'message' => 'Đã ghi lại sự cố!',
