@@ -64,7 +64,8 @@ class BorrowController extends Controller
         $data_borrow->save();
 
         // Xử lý phân tích thống kê
-        $amount_borrow++;
+        $amount_borrow = 0;
+
         $amount_book = $countBook;
 
         $idCheck = DB::table('statisticals')
@@ -73,20 +74,35 @@ class BorrowController extends Controller
         $amountReturn = DB::table('statisticals')
             ->where('id', $idCheck)->value('amount_return');
 
+        $amountBookReturn = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_book_return');
+
+        $amountIssue = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_issue');
+
+        $amountBookIssue = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_book_issue');
+
         if ($idCheck != null) {
             $statis = statistical::find($idCheck);
             $statis->amount_borrow += 1;
-            $statis->amount_book += $countBook;
+            $statis->amount_book_borrow += $countBook;
             $statis->date = Carbon::now();
             $statis->amount_return = $amountReturn;
+            $statis->amount_book_return = $amountBookReturn;
+            $statis->amount_issue = $amountIssue;
+            $statis->amount_book_issue = $amountBookIssue;
             $statis->save();
         } else {
+            $amount_borrow += 1;
             $statistical = new statistical();
             $statistical->amount_borrow = $amount_borrow;
-            $statistical->amount_book = $amount_book;
+            $statistical->amount_book_borrow = $amount_book;
             $statistical->date = Carbon::now();
             $statistical->amount_return = 0;
-
+            $statistical->amount_book_return = 0;
+            $statistical->amount_issue = 0;
+            $statistical->amount_book_issue = 0;
             $statistical->save();
         }
         // Kết thúc xử lý phân tích thống kê
@@ -141,6 +157,49 @@ class BorrowController extends Controller
             }
         }
 
+// Xử lý phân tích thống kê
+        $amount_return = 0;
+
+        $amount_book = $countBook;
+
+        $idCheck = DB::table('statisticals')
+            ->whereDate('date', date('Y-m-d'))->value('id');
+
+        $amountBorrow = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_borrow');
+
+        $amountBookBorrow = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_book_borrow');
+
+        $amountIssue = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_issue');
+
+        $amountBookIssue = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_book_issue');
+
+        if ($idCheck != null) {
+            $statis = statistical::find($idCheck);
+            $statis->amount_return += 1;
+            $statis->amount_book_return += $countBook;
+            $statis->date = Carbon::now();
+            $statis->amount_borrow = $amountBorrow;
+            $statis->amount_book_borrow = $amountBookBorrow;
+            $statis->amount_issue = $amountIssue;
+            $statis->amount_book_issue = $amountBookIssue;
+            $statis->save();
+        } else {
+            $amount_return += 1;
+            $statistical = new statistical();
+            $statistical->amount_return = $amount_return;
+            $statistical->amount_book_return = $amount_book;
+            $statistical->date = Carbon::now();
+            $statistical->amount_borrow = 0;
+            $statistical->amount_book_borrow = 0;
+            $statistical->amount_issue = 0;
+            $statistical->amount_book_issue = 0;
+            $statistical->save();
+        }
+        // Kết thúc xử lý phân tích thống kê
 
         $notification = array(
             'message' => 'Xác nhận trả thành công!',

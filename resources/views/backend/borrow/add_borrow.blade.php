@@ -104,7 +104,7 @@
                                                             <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
                                                             <div class="controls">
                                                                 <input type="date" name="expire_date[]"
-                                                                       class="form-control">
+                                                                       class="form-control" required>
                                                             </div>
                                                         </div>
 
@@ -166,7 +166,7 @@
                         <div class="form-group">
                             <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
                             <div class="controls">
-                                <input type="date" name="expire_date[]" class="form-control">
+                                <input type="date" name="expire_date[]" class="form-control" required>
                             </div>
                         </div>
                     </div><!-- End col-md-5 -->
