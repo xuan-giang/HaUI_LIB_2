@@ -13,6 +13,7 @@ use App\Models\StudentClass;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 use PDF;
 use function Illuminate\Support\Facades\Request;
 
@@ -63,36 +64,32 @@ class BorrowController extends Controller
         $data_borrow->save();
 
         // Xử lý phân tích thống kê
-//        $amount_borrow++;
-//        $amount_book = $countBook;
-//        $idCheck = DB::table('statisticals')
-//            ->where('date', '=', Carbon::today()->format('Y m D'))
-//            ->value('id');
-//        if(DB::table('statisticals')->where('date', '=', Carbon::today()->format('Y m D'))->value('id') != null){
-//            $statis = statistical::find($idCheck);
-//            $statis->amount_borrow = $amount_borrow;
-//            $statis->amount_book = $amount_book;
-//            $statis->date = Carbon::now();
-//            $statis->amount_return = 0;
-//            $statis->save();
-//        }else{
-//            $idCheck = DB::table('statisticals')
-//                ->where('date', '=', Carbon::today()->format('Y m D'))
-//                ->value('id');
-//
-//
-//            $statistical = new statistical();
-//            $statistical->amount_borrow = $amount_borrow;
-//            $statistical->amount_book = $amount_book;
-//            $statistical->date = Carbon::now();
-//            $statistical->amount_return = 0;
-//
-//            $statistical->save();
-//        }
+        $amount_borrow++;
+        $amount_book = $countBook;
 
+        $idCheck = DB::table('statisticals')
+            ->whereDate('date', date('Y-m-d'))->value('id');
 
+        $amountReturn = DB::table('statisticals')
+            ->where('id', $idCheck)->value('amount_return');
 
-// Kết thúc xử lý phân tích thống kê
+        if ($idCheck != null) {
+            $statis = statistical::find($idCheck);
+            $statis->amount_borrow += 1;
+            $statis->amount_book += $countBook;
+            $statis->date = Carbon::now();
+            $statis->amount_return = $amountReturn;
+            $statis->save();
+        } else {
+            $statistical = new statistical();
+            $statistical->amount_borrow = $amount_borrow;
+            $statistical->amount_book = $amount_book;
+            $statistical->date = Carbon::now();
+            $statistical->amount_return = 0;
+
+            $statistical->save();
+        }
+        // Kết thúc xử lý phân tích thống kê
 
         if ($countBook != NULL) {
             for ($i = 0; $i < $countBook; $i++) {
@@ -116,8 +113,7 @@ class BorrowController extends Controller
         return redirect()->route('borrow.view')->with($notification);
     }
 
-    public
-    function borrowStoreReturn(Request $request)
+    public function borrowStoreReturn(Request $request)
     {
         $CHECK_STATUS_AMOUNT_BOOK = 0;
         $NOTIFICATION_NULL_BOOK = "";
