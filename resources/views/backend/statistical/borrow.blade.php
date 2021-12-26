@@ -1,6 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
 
+    <h1>Learning chart.js</h1>
     <div style="margin-left: 25%; margin-right: 5%">
         <canvas width="100" id="myChart"></canvas>
     </div>
