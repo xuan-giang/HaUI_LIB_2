@@ -13,7 +13,7 @@
             'March',
             'April',
             'May',
-            'June',
+            'Junel',
         ];
 
         const data = {
