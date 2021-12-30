@@ -81,7 +81,7 @@
                                                         <div class="form-group">
                                                             <h5>Tên sách <span class="text-danger">*</span></h5>
                                                             <div class="controls">
-                                                                <select name="book_id[]" required=""
+                                                                <select name="book_id[]" id="book_id1" required=""
                                                                         class="form-control">
                                                                     <option value="" selected="" disabled="">Chọn sách
                                                                     </option>
@@ -151,8 +151,8 @@
                         <div class="form-group">
                             <h5>Tên sách <span class="text-danger">*</span></h5>
                             <div class="controls">
-                                <select name="book_id[]" required="" class="form-control">
-                                    <option value="" selected="" disabled="">Chọn sách</option>
+                                <select name="book_id[]" id="book_id2" required="" class="form-control ">
+                                    <option>Chọn sách</option>
                                     @foreach($books as $book)
                                         <option value="{{ $book->id }}">{{ $book->name }} [{{ $book->amount }}]</option>
                                     @endforeach
@@ -207,6 +207,15 @@
             allowClear: true
         });
     </script>
+
+    <script type="text/javascript">
+
+        $("#book_id1").select2({
+            placeholder: "Chọn sách",
+            allowClear: true
+        });
+    </script>
+
 
 
 @endsection
