@@ -159,7 +159,7 @@
                                 </select>
                             </div>
                         </div> <!-- // end form group -->
-                    </div> <!-- End col-md-5 -->
+                    </div>
 
                     <div class="col-md-5">
 
