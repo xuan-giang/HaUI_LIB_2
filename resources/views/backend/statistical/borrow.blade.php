@@ -1,43 +1,76 @@
 @extends('admin.admin_master')
 @section('admin')
 
-    <h1>Learning chart.js</h1>
-    <div style="margin-left: 25%; margin-right: 5%">
-        <canvas width="100" id="myChart"></canvas>
+    <div class="chart-container">
+        <div class="pie-chart-container">
+            <canvas id="pie-chart"></canvas>
+        </div>
     </div>
 
     <script>
-        const labels = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'Nov',
-        ];
+        $(function(){
+            //get the pie chart canvas
+            var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+            var ctx = $("#pie-chart");
 
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 2, 5, 2, 5, 25, 45, 89],
-            }]
-        };
+            //pie chart data
+            var data = {
+                labels: cData.label,
+                datasets: [
+                    {
+                        label: "Users Count",
+                        data: cData.data,
+                        backgroundColor: [
+                            "#DEB887",
+                            "#A9A9A9",
+                            "#DC143C",
+                            "#F4A460",
+                            "#2E8B57",
+                            "#1D7A46",
+                            "#CDA776",
+                        ],
+                        borderColor: [
+                            "#CDA776",
+                            "#989898",
+                            "#CB252B",
+                            "#E39371",
+                            "#1D7A46",
+                            "#F4A460",
+                            "#CDA776",
+                        ],
+                        borderWidth: [1, 1, 1, 1, 1,1,1]
+                    }
+                ]
+            };
 
-        const config = {
-            type: 'line',
-            data: data,
-            options: {}
-        };
-    </script>
-    <script>
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
+            //options
+            var options = {
+                responsive: true,
+                title: {
+                    display: true,
+                    position: "top",
+                    text: "Last Week Registered Users -  Day Wise Count",
+                    fontSize: 18,
+                    fontColor: "#111"
+                },
+                legend: {
+                    display: true,
+                    position: "bottom",
+                    labels: {
+                        fontColor: "#333",
+                        fontSize: 16
+                    }
+                }
+            };
+
+            //create Pie Chart class object
+            var chart1 = new Chart(ctx, {
+                type: "pie",
+                data: data,
+                options: options
+            });
+
+        });
     </script>
 
 @endsection
