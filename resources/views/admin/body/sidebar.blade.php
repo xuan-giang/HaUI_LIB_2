@@ -7,7 +7,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img
+                <img style="height: 2.1rem !important;"
                     src="{{ (!empty(Auth::user()->image))? url('upload/user_images/'.Auth::user()->image):url('upload/no_image.jpg') }} "
                     class="img-circle elevation-2" alt="User Image">
 

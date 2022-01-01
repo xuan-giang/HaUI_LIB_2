@@ -21,8 +21,8 @@
 
 
                             </div>
-                            <div class="widget-user-image" >
-                                <img class="rounded-circle"
+                            <div class="widget-user-image">
+                                <img class="rounded-circle" style="height: 90px !important;"
                                      src="{{ (!empty($user->image))? url('upload/user_images/'.$user->image):url('upload/no_image.jpg') }} "
                                      alt="User Avatar">
                             </div>
