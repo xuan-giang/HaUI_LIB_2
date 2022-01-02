@@ -23,7 +23,7 @@
                                             <th style="width: 32%">Chi tiết sách mượn</th>
                                             <th>Tiền cọc</th>
                                             <th style="width: 10%">Ghi chú</th>
-                                            <th style="width: 20%">Thao tác</th>
+                                            <th style="width: 22%">Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>

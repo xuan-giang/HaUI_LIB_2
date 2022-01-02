@@ -2,14 +2,14 @@
 @section('admin')
 
 
-    <div class="container">
+    <div class="container" style="margin-left: 10%">
        <h1>HIHIIIIIIIIIIIIIIIIIIIIIIIIII</h1>
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Dashboard</div>
                     <div class="panel-body">
-                        <canvas id="canvas" height="280" width="600"></canvas>
+                        <canvas id="canvas" height="140" width="300"></canvas>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
         var barChartData = {
             labels: year,
             datasets: [{
-                label: 'User',
+                label: 'Book',
                 backgroundColor: "pink",
                 data: user
             }]
