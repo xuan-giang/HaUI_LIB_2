@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Borrow;
+use App\Models\Category;
 use App\Models\statistical;
 use App\Models\User;
 use Carbon\Carbon;
@@ -28,5 +29,22 @@ class StatisticalController extends Controller
         }
 
         return view('backend.statistical.view_statistical_reader')->with('year',json_encode($year,JSON_NUMERIC_CHECK))->with('user',json_encode($user,JSON_NUMERIC_CHECK));
+    }
+
+    public function statisticalViewCategory()
+    {
+        $data['allData'] = Category::all();
+        $dataPoints = [];
+
+        foreach ($data['allData'] as $browser) {
+
+            $dataPoints[] = [
+                "name" => $browser['name'],
+                "y" => ($browser['amount'])
+            ];
+        }
+        $data['data'] = json_encode($dataPoints);
+        return view('backend.statistical.category', $data);
+
     }
 }
