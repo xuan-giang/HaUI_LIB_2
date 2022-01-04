@@ -208,7 +208,7 @@ Route::prefix('issues')->group(function () {
 
 Route::prefix('statistical')->group(function () {
 
-    Route::get('/view', [StatisticalController::class, 'statisticalView'])->name('statistical.view');
+    Route::get('/view/reader', [StatisticalController::class, 'statisticalView'])->name('statistical.view.reader');
 
     Route::get('/view/borrow', [StatisticalController::class, 'statisticalViewBorrow'])->name('statistical.view.borrow');
 

@@ -78,7 +78,66 @@
             </section>
             <!-- /.content -->
         </div>
+
+        <div class="container row" style=" margin-top: 16px">
+            <h1>Biểu đồ danh mục theo số lượt mượn</h1>
+            <div class="form-group" style="margin-left: 3%">
+                <label><strong>Xem theo :</strong></label>
+                <select id='approved' class="form-control" style="width: 200px">
+                    <option value="">Chọn tháng</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-md-12 ml-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Dashboard</div>
+                        <div class="panel-body">
+                            <canvas id="canvas" height="180" width="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+        var name_category = <?php echo $name_category; ?>;
+        var amount_borrow = <?php echo $amount_borrow; ?>;
+        var barChartData = {
+            labels: name_category,
+            datasets: [{
+                label: 'Số lượt mượn',
+                backgroundColor: "pink",
+                data: amount_borrow
+            }]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Yearly User Joined'
+                    }
+                }
+            });
+        };
+    </script>
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>

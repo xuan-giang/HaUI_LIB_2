@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Borrow;
 use App\Models\BorrowDetail;
 use App\Models\Category;
+use App\Models\Reader;
 use App\Models\statistical;
 use App\Models\User;
 use Carbon\Carbon;
@@ -23,18 +24,34 @@ class StatisticalController extends Controller
 
     public function statisticalView()
     {
-        $year = ['2016','2017','2018','2019','2021', '2022'];
+        $data['allData'] = Reader::all();
+        $dataPoints = [];
 
-        $user = [];
-        foreach ($year as $key => $value) {
-            $user[] = statistical::where(\DB::raw("DATE_FORMAT(created_at, '%Y')"),$value)->count();
+        foreach ($data['allData'] as $browser) {
+
+            $dataPoints[] = [
+                "name" => $browser['name'],
+                "y" => ($browser['amount'])
+            ];
         }
 
-        return view('backend.statistical.view_statistical_reader')->with('year',json_encode($year,JSON_NUMERIC_CHECK))->with('user',json_encode($user,JSON_NUMERIC_CHECK));
+        $data['data'] = json_encode($dataPoints);
+
+        return view('backend.statistical.reader', $data);
     }
 
     public function statisticalViewCategory()
     {
+
+        $name_category = Category::all()->pluck('name');
+
+        $categories = Category::all();
+        $amount_borrow = [];
+        foreach ($categories as $key => $value) {
+            $amount_borrow[] = DB::table('borrow_details')
+                ->join('books', 'books.id', '=', 'borrow_details.book_id')
+                ->where('category_id', $value->id)->count('*');
+        }
         $data['allData'] = Category::all();
         $dataPoints = [];
 
@@ -45,7 +62,10 @@ class StatisticalController extends Controller
                 "y" => ($browser['amount'])
             ];
         }
+
         $data['data'] = json_encode($dataPoints);
+        $data['name_category'] = json_encode($name_category,JSON_NUMERIC_CHECK);
+        $data['amount_borrow'] = json_encode($amount_borrow,JSON_NUMERIC_CHECK);
         return view('backend.statistical.category', $data);
 
     }
