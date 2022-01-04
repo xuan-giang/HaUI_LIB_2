@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Borrow;
+use App\Models\BorrowDetail;
 use App\Models\Category;
 use App\Models\statistical;
 use App\Models\User;
@@ -45,6 +47,13 @@ class StatisticalController extends Controller
         }
         $data['data'] = json_encode($dataPoints);
         return view('backend.statistical.category', $data);
+
+    }
+
+    public function statisticalViewBook(){
+        $data['books'] = Book::all();
+        $data['borrow_detail'] = BorrowDetail::all();
+        return view('backend.statistical.book', $data);
 
     }
 }

@@ -25,21 +25,30 @@
                                 </div>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0" style="height: 350px;">
-                                <table class="table table-head-fixed text-nowrap">
+                            <div class="card-body table-responsive p-0" style="height: 500px;">
+                                <table id="example2" class="table table-head-fixed text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th >STT</th>
-                                        <th>Tên danh mục</th>
-                                        <th>Số lượng đầu sách</th>
+                                        <th class="sorting">ID</th>
+                                        <th class="sorting">Tên danh mục</th>
+                                        <th class="sorting">Số lượng đầu sách</th>
+                                        <th class="sorting">Số lượt mượn</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($allData as $key => $category )
                                         <tr>
-                                            <td>{{ $key+1 }}</td>
+                                            <td>{{ $category->id }}</td>
                                             <td> {{ $category->name }}</td>
                                             <td> {{ $category->amount }}</td>
+                                            <?php
+                                            $count_book = DB::table('borrow_details')
+                                                ->join('books', 'books.id', '=', 'borrow_details.book_id')
+                                                ->where('category_id', $category->id)->count('*');
+                                            ?>
+
+                                            <td> {{ $count_book }}</td>
                                         </tr>
                                     @endforeach
 
@@ -54,7 +63,9 @@
                         <div class="container">
 
                             <div class="panel panel-primary">
-                                <div class="panel-heading"></div>
+                                <div class="panel-heading">
+                                    <h3>Biểu đồ biểu diễn số lượng sách</h3>
+                                </div>
                                 <div class="panel-body">
                                     <div id="pie-chart"></div>
                                 </div>

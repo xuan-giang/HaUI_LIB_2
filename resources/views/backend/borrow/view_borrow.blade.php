@@ -23,7 +23,7 @@
                                             <th>Mã sinh viên</th>
                                             <th>Bạn đọc</th>
                                             <th style="width: 12%">Số sách mượn</th>
-                                            <th>Trạng thái</th>
+                                            <th style="width: 15%">Trạng thái</th>
                                             <th style="width: 16%">Thao tác</th>
                                         </tr>
                                         </thead>
@@ -66,15 +66,15 @@
 
                                                 <td style="font-weight: bold; text-align: center; font-size: 14px">
                                                     @if( $borrow->status == "Đang mượn")
-                                                        <div style="background-color: #ccc; color: #0045d7;">
+                                                        <div class="progress progress-bar" role="progressbar" style="background-color: red; width: 45%; border-radius: 25px; text-align: center" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
                                                             {{ $borrow->status }}
                                                         </div>
                                                     @elseif($borrow->status == "Đã trả")
-                                                        <div style="background-color: #ccc; color: green;">
+                                                        <div class="progress progress-bar " role="progressbar" style="background-color: green; width: 41%; border-radius: 25px; text-align: center" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
                                                             {{ $borrow->status }}
                                                         </div>
                                                     @else
-                                                        <div style="background-color: #ccc; color: red;">
+                                                        <div class="progress progress-bar progress-bar-primary" role="progressbar" style="width: 41%; border-radius: 25px; text-align: center" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
                                                             {{ $borrow->status }}
                                                         </div>
                                                     @endif

@@ -166,7 +166,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('statistical.view.book') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Sách</p>
                             </a>
