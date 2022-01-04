@@ -49,15 +49,7 @@
                                 </tr>
                             @endforeach
                             </tbody>
-{{--                            <tfoot>--}}
-{{--                            <tr>--}}
-{{--                                <th rowspan="1" colspan="1">Rendering engine</th>--}}
-{{--                                <th rowspan="1" colspan="1">Browser</th>--}}
-{{--                                <th rowspan="1" colspan="1">Platform(s)</th>--}}
-{{--                                <th rowspan="1" colspan="1">Engine version</th>--}}
-{{--                                <th rowspan="1" colspan="1">CSS grade</th>--}}
-{{--                            </tr>--}}
-{{--                            </tfoot>--}}
+
                         </table>
                     </div>
                 </div>
