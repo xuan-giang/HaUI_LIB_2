@@ -44,8 +44,8 @@
                                                             <td>{{ $reader->name }}</td>
                                                         @endif
                                                     @endforeach
-                                                    <td>
 
+                                                    <td>
                                                         @foreach($borrow_details as $key => $borrow_detail )
                                                             @foreach($books as $key => $book )
 
@@ -67,7 +67,7 @@
                                                                 @endif
                                                             @endforeach
                                                         @endforeach
-                                                        {{ number_format($deposit, 0, ',', '.') }} VND
+                                                        <b style="color: red">{{ number_format($deposit, 0, ',', '.') }} </b>
                                                     </td>
                                                     <td> {{ $borrow->note }}</td>
                                                     <td>

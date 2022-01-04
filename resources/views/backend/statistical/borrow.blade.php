@@ -11,7 +11,7 @@
                     <option value="0">No</option>
                 </select>
             </div>
-            <div id="barchart_material" style="width: 84%; height: 500px; margin-left: 3%; "></div>
+            <div id="barchart_material" style="width: 88%; height: 500px; margin-left: 3%; "></div>
         </div>
     </div>
     <script type="text/javascript">
