@@ -4,8 +4,6 @@
     <div class="content-wrapper">
         <div class="container-full" style="margin-left: 5%; margin-right: 20%">
             <!-- Content Header (Page header) -->
-
-
             <section class="content">
 
                 <!-- Basic Forms -->

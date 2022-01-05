@@ -15,10 +15,6 @@ class ClassController extends Controller
     public function classView()
     {
         $data['allData'] = StudentClass::all();
-//        $data['faculties'] = Faculty::all();
-//        $data['faculty_id'] = Faculty::orderBy('id','desc')->first()->id;
-//        dd($data['class_id']);
-//        $data['allData1'] = AssignClass::where('faculty_id',$data['faculty_id'])->get();
         return view('backend.class.view_class', $data);
     }
 
@@ -28,6 +24,7 @@ class ClassController extends Controller
 
         return view('backend.class.add_class', $data);
     }
+
 
     public function classStore(Request $request)
     {
@@ -49,11 +46,6 @@ class ClassController extends Controller
         $data_temp = $data_faculty->amount;
         $data_faculty->amount = $data_temp + 1;
         $data_faculty->save();
-
-//        $assign_class = new AssignClass();
-//        $assign_class->class_id = $data->id;
-//        $assign_class->faculty_id = $request->faculty_id;
-//        $assign_class->save();
 
         $notification = array(
             'message' => 'Đã tạo lớp ' . $data->name . ' thành công!',
@@ -105,12 +97,6 @@ class ClassController extends Controller
             }
 
             $data->faculty_id = $request->faculty_id;
-//
-//            $assign_class = AssignClass::where('id', $request->id)->where('class_id', $class_id)->first();
-//
-//            $assign_class->faculty_id = $request->faculty_id;
-//
-//            $assign_class->save();
 
             $data->save();
         });

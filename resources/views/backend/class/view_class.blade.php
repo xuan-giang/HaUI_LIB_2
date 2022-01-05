@@ -5,6 +5,7 @@
             <!-- Content Header (Page header) -->
             <!-- Main content -->
             <section class="content">
+
                 <div class="row" style="margin-left: 3%; margin-right: 3%">
                     <div class="col-12">
                         <div class="box">
@@ -14,12 +15,14 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
+
+
                                     <a href="{{ route('class.add') }}" style="float: right; margin-right: 4%"
                                        class="btn btn-rounded btn-success"> Thêm mới</a>
-                                    <table id="example1" class="table table-bordered table-striped" >
+                                    <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                         <tr>
-                                            <th width="3%" >STT</th>
+                                            <th width="3%">STT</th>
                                             <th>Tên lớp</th>
                                             <th>Khoá</th>
                                             <th>Số lượng sinh viên</th>
@@ -39,7 +42,8 @@
                                                 <td style="text-align: center">
                                                     <a href="{{ route('class.edit',$class->id) }}"
                                                        class="btn btn-info btn-sm">Edit</a>
-                                                    <a href="{{ route('class.delete',$class->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
+                                                    <a href="{{ route('class.delete',$class->id) }}"
+                                                       onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-danger btn-sm" id="delete">Delete</a>
                                                 </td>
                                             </tr>
@@ -57,7 +61,7 @@
                     </div>
                     <!-- /.col -->
                 </div>
-                <!-- /.row -->
+
             </section>
             <!-- /.content -->
         </div>

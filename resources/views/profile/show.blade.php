@@ -1,9 +1,9 @@
 @extends('admin.admin_master')
 @section('admin')
-<x-app-layout>
+<x-app-layout class="content-wrapper">
 
 
-    <div style="margin-left: 18%">
+    <div style="margin-left: 18%" class="container-full">
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 {{--            @if (Laravel\Fortify\Features::canUpdateProfileInformation())--}}
 {{--                @livewire('profile.update-profile-information-form')--}}
