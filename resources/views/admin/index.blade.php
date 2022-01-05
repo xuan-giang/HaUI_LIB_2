@@ -40,12 +40,12 @@
 
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{!! $reader !!}</h3>
+                            <h3>{!! $category !!}</h3>
 
                             <p>Danh mục</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="fa fa-list-alt"></i>
                         </div>
                         <a href="{{ route('category.view') }}" class="small-box-footer">Xem <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
@@ -61,7 +61,7 @@
                             <p>Các đầu sách</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="fas fa-book"></i>
                         </div>
                         <a href="{{ route('book.view') }}" class="small-box-footer">Xem <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
@@ -93,7 +93,7 @@
                             <p>Số lượt mượn sách</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
+                            <i class="fas fa-tasks"></i>
                         </div>
                         <a href="{{ route('borrow.view') }}" class="small-box-footer">Xem <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

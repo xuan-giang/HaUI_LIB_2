@@ -39,23 +39,14 @@
                                                                             - {{ $reader->name }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <a href="{{ route('reader.add') }}"
-                                                                   style="float: left; margin-top: 1%"
-                                                                   class="btn btn-rounded btn-outline-success mb-5">
-                                                                    Thêm bạn đọc mới</a>
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group" style="margin-right: 15%">
-                                                            <h5>Ghi chú</h5>
-                                                            <div class="controls">
-                                                                <textarea class="form-control" name="note"
-                                                                          id="note" rows="3" cols="60" required
-                                                                          placeholder="Nhập ghi chú"></textarea>
-
-                                                            </div>
-                                                        </div> <!-- // end form group -->
+                                                        <a href="{{ route('reader.add') }}"
+                                                           style="float: left; margin-top: 5%"
+                                                           class="btn btn-rounded btn-success mb-5">
+                                                            Thêm bạn đọc mới</a>
                                                         <div class="form-group" style="display: none">
                                                             <h5>Trạng thái</h5>
                                                             <div class="controls">
@@ -72,7 +63,17 @@
                                                         </div> <!-- // end form group -->
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="form-group" style="margin-right: 10%">
+                                                        <h5>Ghi chú</h5>
+                                                        <div class="controls mr-5">
+                                                                <textarea class="form-control" name="note"
+                                                                          id="note" rows="3" cols="45" required
+                                                                          placeholder="Nhập ghi chú"></textarea>
 
+                                                        </div>
+                                                    </div> <!-- // end form group -->
+                                                </div>
 
                                                 <div class="row">
 
@@ -166,7 +167,7 @@
                         <div class="form-group">
                             <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
                             <div class="controls">
-                                <input type="date" name="expire_date[]" class="form-control" required >
+                                <input type="date" name="expire_date[]" class="form-control" required>
                             </div>
                         </div>
                     </div><!-- End col-md-5 -->
