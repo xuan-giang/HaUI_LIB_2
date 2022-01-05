@@ -113,6 +113,8 @@ Route::prefix('faculty')->group(function () {
 
     Route::get('/view', [FacultyController::class, 'facultyView'])->name('faculty.view');
 
+    Route::get('/view/{id}', [FacultyController::class, 'facultyDetailView'])->name('faculty.detail.view');
+
     Route::get('/add', [FacultyController::class, 'facultyAdd'])->name('faculty.add');
 
     Route::post('/store', [FacultyController::class, 'facultyStore'])->name('faculty.store');

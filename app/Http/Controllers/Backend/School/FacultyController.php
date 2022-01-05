@@ -4,14 +4,24 @@ namespace App\Http\Controllers\Backend\School;
 
 use App\Http\Controllers\Controller;
 use App\Models\Faculty;
+use App\Models\StudentClass;
 use Illuminate\Http\Request;
-
+use DB;
 class FacultyController extends Controller
 {
     public function facultyView()
     {
         $data['allData'] = Faculty::all();
         return view('backend.setup.view_faculty', $data);
+    }
+
+    public function facultyDetailView($id)
+    {
+        $data['faculty'] = Faculty::find($id);
+        $data['allClass'] = DB::table('student_classes')
+            ->where('faculty_id', '=', $id)
+            ->get();
+        return view('backend.setup.view_detail_faculty', $data);
     }
 
     public function facultyAdd()

@@ -5,7 +5,7 @@
             <!-- Content Header (Page header) -->
             <!-- Main content -->
             <section class="content">
-                <div class="row" style="margin-left: 3%">
+                <div class="row" style="margin-left: 3%; margin-right: 3%">
                     <div class="col-12">
                         <div class="box">
 
@@ -47,7 +47,7 @@
                                             <th width="5%">STT</th>
                                             <th>Tên khoa</th>
                                             <th>Số lượng lớp trực thuộc</th>
-                                            <th width="25%">Thao tác</th>
+                                            <th>Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -58,11 +58,14 @@
                                                 <td> {{ $faculty->amount }}</td>
                                                 <td>
                                                     <a href="{{ route('faculty.edit',$faculty->id) }}"
-                                                       class="btn btn-info">Edit</a>
+                                                       class="btn btn-info">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        </a>
                                                     <a href="{{ route('faculty.delete',$faculty->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
-                                                       class="btn btn-danger" id="delete">Delete</a>
-                                                    <a href="#" onClick="alert('Tính năng này đang trong thời gian phát triển, vui lòng quay lại sau!')"
-                                                       class="btn btn-primary" id="detail">Detail</a>
+                                                       class="btn btn-danger" id="delete"><i class="fas fa-trash"></i></a>
+                                                    <a href="{{ route('faculty.detail.view', $faculty->id) }}"
+                                                       class="btn btn-primary" id="detail" aria-placeholder="view"><i class="fas fa-folder">
+                                                        </i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
