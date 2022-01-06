@@ -113,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('book.view') }}" class="nav-link">
+                            <a href="#" class="nav-link" onClick="alert('Tính năng này đang phát triển\nVui lòng quay lại sau')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dự trù mua sách</p>
                             </a>
@@ -222,12 +222,12 @@
                                 <p>Thiết lập lớp</p>
                             </a>
                         </li>
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="" class="nav-link">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Cài đặt hệ thống</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onClick="alert('Tính năng này đang phát triển\nVui lòng quay lại sau')">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cài đặt hệ thống</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

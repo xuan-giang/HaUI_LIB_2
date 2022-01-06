@@ -65,7 +65,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group" style="max-width: 65%">
-                                                        <h5>Ghi chú</h5>
+                                                        <h5>Ghi chú<span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                                 <textarea class="form-control" name="note"
                                                                           id="note" rows="3" cols="45" required
@@ -106,17 +106,17 @@
 
                                                     </div> <!-- End col-md-5 -->
 
-{{--                                                    <div class="col-md-5">--}}
+                                                    {{--                                                    <div class="col-md-5">--}}
 
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>--}}
-{{--                                                            <div class="controls">--}}
-{{--                                                                <input type="date" name="expire_date[]"--}}
-{{--                                                                       class="form-control" required>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
+                                                    {{--                                                        <div class="form-group">--}}
+                                                    {{--                                                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>--}}
+                                                    {{--                                                            <div class="controls">--}}
+                                                    {{--                                                                <input type="date" name="expire_date[]"--}}
+                                                    {{--                                                                       class="form-control" required>--}}
+                                                    {{--                                                            </div>--}}
+                                                    {{--                                                        </div>--}}
 
-{{--                                                    </div><!-- End col-md-5 -->--}}
+                                                    {{--                                                    </div><!-- End col-md-5 -->--}}
 
                                                     <div class="col-md-2" style="padding-top: 25px;">
                                                         <span class="btn btn-success addeventmore"><i
@@ -159,24 +159,39 @@
                         <div class="form-group">
                             <h5>Tên sách <span class="text-danger">*</span></h5>
                             <div class="controls">
-                                <select name="book_id[]" id="book_id2" required="" class="form-control ">
-                                    <option>Chọn sách</option>
+                                <select name="book_id[]" id="" required=""
+                                        class="form-control">
+                                    <option value="" selected="" disabled="">Chọn sách
+                                    </option>
                                     @foreach($books as $book)
-                                        <option value="{{ $book->id }}">{{ $book->name }} [{{ $book->amount }}]</option>
+                                        <option
+                                            value="{{ $book->id }}">{{ $book->name }}
+                                            [{{ $book->amount }}]
+                                        </option>
                                     @endforeach
                                 </select>
+{{--                                <input name="book_id[]" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chọn sách">--}}
+
+{{--                                <datalist id="datalistOptions">--}}
+{{--                                    <option disabled>Chọn sách</option>--}}
+{{--                                    @foreach($books as $book)--}}
+{{--                                        <option data-tokens="{{ $book->name }}"--}}
+{{--                                                value="{{ $book->id }}">{{ $book->name }} [{{ $book->amount }}]--}}
+{{--                                        </option>--}}
+{{--                                    @endforeach--}}
+{{--                                </datalist>--}}
                             </div>
                         </div> <!-- // end form group -->
                     </div>
 
-{{--                    <div class="col-md-5">--}}
-{{--                        <div class="form-group">--}}
-{{--                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>--}}
-{{--                            <div class="controls">--}}
-{{--                                <input type="date" name="expire_date[]" class="form-control" required>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div><!-- End col-md-5 -->--}}
+                    {{--                    <div class="col-md-5">--}}
+                    {{--                        <div class="form-group">--}}
+                    {{--                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>--}}
+                    {{--                            <div class="controls">--}}
+                    {{--                                <input type="date" name="expire_date[]" class="form-control" required>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div><!-- End col-md-5 -->--}}
 
                     <div class="col-md-2" style="padding-top: 25px;">
                         <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i> </span>
@@ -221,7 +236,14 @@
             placeholder: "Chọn sách",
             allowClear: true
         });
+
     </script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
 
 
 

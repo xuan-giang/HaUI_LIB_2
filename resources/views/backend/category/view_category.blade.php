@@ -33,9 +33,9 @@
                                                 <td> {{ $category->amount }}</td>
                                                 <td>
                                                     <a href="{{ route('category.edit',$category->id) }}"
-                                                       class="btn btn-info btn-sm">Edit</a>
+                                                       class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
                                                     <a href="{{ route('category.delete',$category->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
-                                                       class="btn btn-danger btn-sm" id="delete">Delete</a>
+                                                       class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

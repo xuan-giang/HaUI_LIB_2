@@ -20,7 +20,7 @@
                                                     <div class="form-group">
 
                                                         <div class="controls">
-                                                            <h5 >Nhập tên khoa <span class="text-danger">*</span></h5>
+                                                            <h5>Nhập tên khoa <span class="text-danger">*</span></h5>
                                                             <input type="text" name="name" class="form-control"
                                                                    placeholder="Nhập tên khoa trong trường đại học">
                                                             <input type="text" name="amount" class="form-control"
@@ -60,11 +60,14 @@
                                                     <a href="{{ route('faculty.edit',$faculty->id) }}"
                                                        class="btn btn-info">
                                                         <i class="fas fa-pencil-alt"></i>
-                                                        </a>
-                                                    <a href="{{ route('faculty.delete',$faculty->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
-                                                       class="btn btn-danger" id="delete"><i class="fas fa-trash"></i></a>
+                                                    </a>
+                                                    <a href="{{ route('faculty.delete',$faculty->id) }}"
+                                                       onclick="return confirm('Bạn có chắc chắn xoá?')"
+                                                       class="btn btn-danger" id="delete">
+                                                        <i class="fas fa-trash"></i></a>
                                                     <a href="{{ route('faculty.detail.view', $faculty->id) }}"
-                                                       class="btn btn-primary" id="detail" aria-placeholder="view"><i class="fas fa-folder">
+                                                       class="btn btn-primary" id="detail" aria-placeholder="view">
+                                                        <i class="fas fa-folder">
                                                         </i></a>
                                                 </td>
                                             </tr>
