@@ -124,7 +124,7 @@ class BorrowController extends Controller
                 $data_borrow_detail = new BorrowDetail();
                 $data_borrow_detail->borrow_id = $data_borrow->id;
                 $data_borrow_detail->book_id = $request->book_id[$i];
-                $data_borrow_detail->expire_date = $request->expire_date[$i];
+                $data_borrow_detail->expire_date = $request->expire_date[0];
                 $data_borrow_detail->save();
 
                 $data_book = Book::find($request->book_id[$i]);

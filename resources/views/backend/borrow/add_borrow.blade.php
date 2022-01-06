@@ -42,7 +42,7 @@
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6" style="max-width: 60%">
                                                         <a href="{{ route('reader.add') }}"
                                                            style="float: left; margin-top: 5%"
                                                            class="btn btn-rounded btn-success mb-5">
@@ -64,9 +64,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="form-group" style="margin-right: 10%">
+                                                    <div class="form-group" style="max-width: 65%">
                                                         <h5>Ghi chú</h5>
-                                                        <div class="controls mr-5">
+                                                        <div class="controls">
                                                                 <textarea class="form-control" name="note"
                                                                           id="note" rows="3" cols="45" required
                                                                           placeholder="Nhập ghi chú"></textarea>
@@ -76,6 +76,13 @@
                                                 </div>
 
                                                 <div class="row">
+                                                    <div class="form-group" style="max-width: 65%">
+                                                        <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
+                                                        <div class="controls">
+                                                            <input type="date" name="expire_date[]"
+                                                                   class="form-control" required>
+                                                        </div>
+                                                    </div>
 
                                                     <div class="col-md-5">
 
@@ -99,17 +106,17 @@
 
                                                     </div> <!-- End col-md-5 -->
 
-                                                    <div class="col-md-5">
+{{--                                                    <div class="col-md-5">--}}
 
-                                                        <div class="form-group">
-                                                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
-                                                            <div class="controls">
-                                                                <input type="date" name="expire_date[]"
-                                                                       class="form-control" required>
-                                                            </div>
-                                                        </div>
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>--}}
+{{--                                                            <div class="controls">--}}
+{{--                                                                <input type="date" name="expire_date[]"--}}
+{{--                                                                       class="form-control" required>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
 
-                                                    </div><!-- End col-md-5 -->
+{{--                                                    </div><!-- End col-md-5 -->--}}
 
                                                     <div class="col-md-2" style="padding-top: 25px;">
                                                         <span class="btn btn-success addeventmore"><i
@@ -162,15 +169,14 @@
                         </div> <!-- // end form group -->
                     </div>
 
-                    <div class="col-md-5">
-
-                        <div class="form-group">
-                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
-                            <div class="controls">
-                                <input type="date" name="expire_date[]" class="form-control" required>
-                            </div>
-                        </div>
-                    </div><!-- End col-md-5 -->
+{{--                    <div class="col-md-5">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>--}}
+{{--                            <div class="controls">--}}
+{{--                                <input type="date" name="expire_date[]" class="form-control" required>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div><!-- End col-md-5 -->--}}
 
                     <div class="col-md-2" style="padding-top: 25px;">
                         <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i> </span>
