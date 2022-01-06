@@ -29,6 +29,17 @@ class BorrowController extends Controller
         return view('backend.borrow.view_borrow', $data);
     }
 
+    public function borrowDetailView($borrow_id)
+    {
+        $data['borrow'] = Borrow::find($borrow_id);
+        $data['borrow_details'] = BorrowDetail::all()->where('borrow_id', $borrow_id);
+        $data['reader'] = Reader::find($data['borrow']->reader_id);
+        $data['class'] = StudentClass::find($data['reader']->class_id);
+        $data['books'] = Book::all();
+
+        return view('backend.borrow.view_detail_borrow', $data);
+    }
+
     public function borrowAdd()
     {
         $data['readers'] = Reader::all();
@@ -285,8 +296,7 @@ class BorrowController extends Controller
 
     }
 
-    public
-    function borrowDetail($borrow_id)
+    public function borrowDetail($borrow_id)
     {
         $data['borrow'] = Borrow::find($borrow_id);
         $data['borrow_details'] = BorrowDetail::all()->where('borrow_id', $borrow_id);

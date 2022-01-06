@@ -170,6 +170,8 @@ Route::prefix('borrow')->group(function () {
 
     Route::get('/view', [BorrowController::class, 'borrowView'])->name('borrow.view');
 
+    Route::get('/view/detail/{id}', [BorrowController::class, 'borrowDetailView'])->name('borrow.detail.view');
+
     Route::get('/add', [BorrowController::class, 'borrowAdd'])->name('borrow.add');
 
     Route::get('/return', [BorrowController::class, 'returnAdd'])->name('return.add');

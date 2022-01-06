@@ -44,10 +44,6 @@
                                                     @endif
                                                 @endforeach
 
-                                                {{--                                                @php--}}
-                                                {{--                                                    $amount_book = DB::table('borrow_details')->where('borrow_id', $borrow['id'])->count('*');--}}
-                                                {{--                                                @endphp--}}
-
                                                 @php
                                                     $amount_book = 0;
                                                 @endphp
@@ -83,7 +79,7 @@
                                                 <td>
                                                     <a href="{{ route('borrow.detail',$borrow->id) }}"
                                                        class="btn bg-gradient-info btn-sm">Xuất phiếu</a>
-                                                    <a href="{{ route('borrow.detail',$borrow->id) }}"
+                                                    <a href="{{ route('borrow.detail.view', $borrow->id) }}"
                                                        class="btn bg-gradient-warning btn-sm">Chi tiết</a>
 
                                                 </td>

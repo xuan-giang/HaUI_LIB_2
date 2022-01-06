@@ -166,10 +166,7 @@
                                                                                     @endif
                                                                                 @endforeach
                                                                             </div><!-- End col-md-5 -->
-
                                                                             <div class="col-md-5">
-
-
                                                                             </div> <!-- End col-md-5 -->
                                                                             <div class="col-md-2"
                                                                                  style="padding-top: 25px;">
@@ -184,12 +181,11 @@
                                                             </div>
 
 
-                                                            {{--        END ADD RETURN BOOK     --}}
 
                                                             <input type="submit" class="btn btn-rounded btn-info btn-sm"
                                                                    onclick="return confirm('Xác nhận bạn đọc trả sách!')"
                                                                    value="Trả sách">
-                                                            <a href="{{ route('issues.add', $borrow->id) }}"
+                                                            <a href=""
                                                                class="btn btn-warning btn-sm" id="delete">Gia hạn</a>
                                                             <a href="{{ route('issues.add', $borrow->id) }}"
                                                                class="btn btn-danger btn-sm" id="delete">Mất sách</a>
