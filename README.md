@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Dự án Website Quản lý thư viện - Bài tập lớn học phần Lập trình web bằng PHP
+## Dự án Website Quản lý thư viện - Bài tập lớn học phần Lập trình web PHP
 
 Công nghệ áp dụng
 
