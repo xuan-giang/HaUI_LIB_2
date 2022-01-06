@@ -32,7 +32,7 @@
                                                             <h5>Bạn đọc<span class="text-danger">*</span></h5>
                                                             <div class="controls">
                                                                 <select name="reader_id" required=""
-                                                                        class="form-control">
+                                                                        class="form-control" disabled>
                                                                     <option value="" selected="" disabled="">
                                                                         Chọn bạn đọc
                                                                     </option>
@@ -43,10 +43,10 @@
                                                                             - {{ $reader->name }}</option>
                                                                     @endforeach
                                                                 </select>
-                                                                <a href="{{ route('reader.add') }}"
-                                                                   style="float: left; margin-top: 1%"
-                                                                   class="btn btn-rounded btn-outline-success mb-5">
-                                                                    Thêm bạn đọc mới</a>
+{{--                                                                <a href="{{ route('reader.add') }}"--}}
+{{--                                                                   style="float: left; margin-top: 1%"--}}
+{{--                                                                   class="btn btn-rounded btn-outline-success mb-5">--}}
+{{--                                                                    Sửa thông tin người đọc</a>--}}
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                     </div>
@@ -55,14 +55,14 @@
                                                             <h5>Ghi chú</h5>
                                                             <div class="controls">
                                                                 <input type="text" class="form-control" name="note"
-                                                                       value="{{ $borrow->note }}">
+                                                                       value="{{ $borrow->note }}" disabled>
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                         <div class="form-group" style="display: none">
                                                             <h5>Trạng thái</h5>
                                                             <div class="controls">
                                                                 <input type="text" class="form-control" name="status"
-                                                                       value="Đã trả">
+                                                                       value="Đã trả" disabled>
                                                             </div>
                                                         </div> <!-- // end form group -->
                                                         <div class="form-group" style="display: none">
@@ -86,7 +86,7 @@
                                                                 <div class="controls">
 
                                                                     <select name="book_id[]" required=""
-                                                                            class="form-control">
+                                                                            class="form-control" disabled>
                                                                         <option value="" selected="" disabled="">Chọn
                                                                             sách
                                                                         </option>
@@ -136,7 +136,7 @@
 
                                             <div class="text-xs-right">
                                                 <input type="submit" class="btn btn-rounded btn-outline-primary mb-5"
-                                                       onclick="return confirm('Yêu cầu sau khi tạo sẽ không thể thay đổi hoặc xoá!\nBạn có chắc chắn tạo yêu cầu?')"
+                                                       onclick="return confirm('Cập nhật thông tin phiếu mượn!\nBạn có chắc chắn tạo yêu cầu?')"
                                                        value="Submit">
                                             </div>
                                         </div>

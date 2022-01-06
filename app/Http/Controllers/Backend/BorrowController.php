@@ -220,8 +220,7 @@ class BorrowController extends Controller
         return redirect()->route('borrow.view')->with($notification);
     }
 
-    public
-    function borrowEdit($id)
+    public function borrowEdit($id)
     {
         $editData['borrow'] = Borrow::find($id);
         $editData['readers'] = Reader::all();
@@ -231,53 +230,22 @@ class BorrowController extends Controller
     }
 
 
-    public
-    function borrowUpdate(Request $request, $id)
+    public function borrowUpdate(Request $request, $id)
     {
-
-        $data = Reader::find($id);
-
-        $validatedData = $request->validate([
-            'name' => 'required|unique:readers,name,' . $data->id
-
-        ]);
-
-        $data->name = $request->name;
-        $data->gender = $request->gender;
-        $data->student_code = $request->student_code;
-        $data->email = $request->email;
-        $data->phone = $request->phone;
-
-        $data->address = $request->address;
-
-        if ($data->class_id != $request->class_id) {
-            // Tăng amount trong Class mỡi
-            $data_class1 = StudentClass::find($request->class_id);
-            $data_temp = $data_class1->amount_students;
-            $data_class1->amount_students = $data_temp + 1;
-            $data_class1->save();
-
-            // Giảm amount trong Class cũ
-            $data_class2 = StudentClass::find($data->class_id);
-            $data_temp = $data_class2->amount_students;
-            if ($data_temp != 0) {
-                $data_class2->amount_students = $data_temp - 1;
-            } else {
-                $data_class2->amount_students = 0;
-            }
-            $data_class2->save();
+        $key = 0;
+        $data_borrow_detail = BorrowDetail::where('borrow_id', $id)->get();
+        foreach ($data_borrow_detail as $borrow_detail){
+            $borrow_detail->expire_date = $request->expire_date[$key];
+            $borrow_detail->save();
+            $key+=1;
         }
 
-        $data->class_id = $request->class_id;
-
-        $data->save();
-
         $notification = array(
-            'message' => 'Cập nhật người đọc thành công',
+            'message' => 'Cập nhật thông tin thành công',
             'alert-type' => 'success'
         );
 
-        return redirect()->route('reader.view')->with($notification);
+        return redirect()->route('return.add')->with($notification);
     }
 
 
