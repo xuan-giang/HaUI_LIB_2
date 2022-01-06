@@ -13,7 +13,17 @@ Công nghệ áp dụng
 
 - Ngôn ngữ lập trình PHP.
 - Framework Laravel 8.x
-- Thư viện Bootstrap
+- Thư viện Bootstrap, jQuery, Ajax
 - Cơ sở dữ liệu MySQL
 - Template Admin Panel AdminLTE
+
+<b>Ảnh minh hoạ trang đăng nhập</b>
+![plot](public/upload/product_images/product_login_1.png)
+
+<b>Ảnh minh hoạ trang Dashboard</b>
+![plot](public/upload/product_images/product_dashboard.png)
+
+
+
+
 
