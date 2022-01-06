@@ -4,12 +4,17 @@
         <div class="container-full card card-primary" style="margin-left: 3%; margin-right: 5%">
             <a href="#null" style="margin-left: 80%; " class="btn btn-info" onclick="printContent('printTable')">In phiếu</a>
             <div id="printTable" class=" ml-5">
-                <table id="customers">
+                <table id="customers" width="100%">
                     <tr>
                         <td>
-                            <h4>THÔNG TIN MƯỢN SÁCH</h4>
-                            <p>Mã phiếu: {{ $borrow['id'] }}</p>
+                            <p style="font-size: 16px; font-weight: bolder; text-transform: uppercase">Trung tâm thông tin thư viện<br>Trường Đại Học Công Nghiệp Hà Nội</p>
+
                         </td>
+                        <td style="text-align: center">
+                            <h3 style="text-align: center">PHIẾU MƯỢN SÁCH</h3>
+                            <p>Mã phiếu: {{date('Ymd'). $borrow['id'] }}</p>
+                        </td>
+
                     </tr>
 
 
@@ -19,10 +24,10 @@
 
                 @endphp
 
-                <table id="customers2" style="margin-top: 3%">
+                <table id="customers2" style="margin-top: 1%">
                     <tr>
                         <td width="20%"><b>Sinh viên:</b></td>
-                        <td width="65%">{{ $reader['name'] }} - {{ $reader['student_code'] }}</td>
+                        <td width="65%" class="text-bold">{{ $reader['name'] }} - {{ $reader['student_code'] }}</td>
                     </tr>
                     <tr>
                         <td width="20%"><b>Lớp:</b></td>
@@ -40,13 +45,13 @@
                     </div>
                 @endif
 
-                <table id="customers" style="margin-top: 3%; text-align: left; border-collapse: collapse;">
+                <table border="2" class="table table-bordered" id="customers" style="margin-top: 2%; text-align: left; border-collapse: collapse;">
 
                     <tr>
                         <th width="12%">#ID</th>
                         <th width="40%">Tên sách</th>
                         <th width="30%">&nbsp;Ngày đến hạn</th>
-                        <th width="20%">Giá niêm yết</th>
+                        <th width="20%">Giá bìa</th>
                     </tr>
                     @php
                         $sumFee = 0;
@@ -79,7 +84,7 @@
                 </table>
                 <table class="ml-10" id="customers1" style="width: 100%; margin-top: 3%; font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-            text-align: left;">
+            text-align: center;">
                     <tr style="height: 35%">
                         <td>
 
@@ -100,8 +105,8 @@
                 </table>
 
                 <br> <br>
-                <i style="font-size: 10px; float: right;">Ngày : {{ date("d/m/Y") }} - Thư viện trường Đại Học
-                    Công Nghiệp Hà Nội</i>
+                <i style="font-size: 10px; float: right;"><b>Bạn đọc mang theo phiếu này khi trả sách</b>  </i>
+                <i style="font-size: 10px; float: left;"> <b>{{ date("d/m/Y") }} -  https://lic.haui.edu.vn/ </b>  </i>
 
             </div>
 

@@ -19,6 +19,18 @@ use function Illuminate\Support\Facades\Request;
 
 class BorrowController extends Controller
 {
+//    public function getIdBorrowMax()
+//    {
+//        $borrow_obj = Borrow::all();
+//        $maxId = 0;
+//        foreach ($borrow_obj as $obj){
+//            if($obj->id > $maxId){
+//                $maxId = $obj->id;
+//            }
+//        }
+//        return $maxId;
+//    }
+
     public function borrowView()
     {
         $data['allData'] = Borrow::all();
@@ -138,7 +150,12 @@ class BorrowController extends Controller
             'message' => 'Đã tạo phiếu mượn thành công!',
             'alert-type' => 'success'
         );
-        return redirect()->route('borrow.view')->with($notification);
+        if($request->print_bill){
+            return redirect()->route('borrow.detail.view', $data_borrow->id)->with($notification);
+        }else{
+            return redirect()->route('borrow.view')->with($notification);
+        }
+
     }
 
     public function borrowStoreReturn(Request $request)
@@ -234,10 +251,10 @@ class BorrowController extends Controller
     {
         $key = 0;
         $data_borrow_detail = BorrowDetail::where('borrow_id', $id)->get();
-        foreach ($data_borrow_detail as $borrow_detail){
+        foreach ($data_borrow_detail as $borrow_detail) {
             $borrow_detail->expire_date = $request->expire_date[$key];
             $borrow_detail->save();
-            $key+=1;
+            $key += 1;
         }
 
         $notification = array(
@@ -276,5 +293,6 @@ class BorrowController extends Controller
         $pdf->SetProtection(['copy', 'print'], '', 'pass');
         return $pdf->stream('document.pdf');
     }
+
 
 }

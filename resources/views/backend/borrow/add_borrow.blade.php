@@ -5,15 +5,11 @@
     <div class="content-wrapper ">
         <div class="container-full card card-primary" style="margin-left: 5%; margin-right: 5%">
             <!-- Content Header (Page header) -->
-
-
             <section class="content">
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="card-header with-border" style="background-color: #0c84ff; color: white">
-
                         <h2 class="card-title">Tạo yêu cầu mượn sách</h2>
-
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body" style="margin-left: 2%; margin-top: 2%;">
@@ -134,16 +130,23 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" name="print_bill" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                                        <label class="form-check-label" for="flexSwitchCheckChecked"
+                                        >In phiếu ngay sau khi tạo</label
+                                        >
+                                    </div>
                                 </form>
 
                             </div>
                             <!-- /.col -->
                         </div>
-                        <!-- /.row -->
+
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
+
             </section>
         </div>
     </div>
@@ -170,16 +173,16 @@
                                         </option>
                                     @endforeach
                                 </select>
-{{--                                <input name="book_id[]" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chọn sách">--}}
+                                {{--                                <input name="book_id[]" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Chọn sách">--}}
 
-{{--                                <datalist id="datalistOptions">--}}
-{{--                                    <option disabled>Chọn sách</option>--}}
-{{--                                    @foreach($books as $book)--}}
-{{--                                        <option data-tokens="{{ $book->name }}"--}}
-{{--                                                value="{{ $book->id }}">{{ $book->name }} [{{ $book->amount }}]--}}
-{{--                                        </option>--}}
-{{--                                    @endforeach--}}
-{{--                                </datalist>--}}
+                                {{--                                <datalist id="datalistOptions">--}}
+                                {{--                                    <option disabled>Chọn sách</option>--}}
+                                {{--                                    @foreach($books as $book)--}}
+                                {{--                                        <option data-tokens="{{ $book->name }}"--}}
+                                {{--                                                value="{{ $book->id }}">{{ $book->name }} [{{ $book->amount }}]--}}
+                                {{--                                        </option>--}}
+                                {{--                                    @endforeach--}}
+                                {{--                                </datalist>--}}
                             </div>
                         </div> <!-- // end form group -->
                     </div>
@@ -200,8 +203,8 @@
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -240,9 +243,13 @@
     </script>
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
 
 
