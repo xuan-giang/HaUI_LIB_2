@@ -11,7 +11,7 @@
                 <!-- Basic Forms -->
                 <div class="box" style="margin-left: 3%">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Cập nhật người đọc</h4>
+                        <h4 class="box-title">Cập nhật thông tin người đọc</h4>
 
                     </div>
                     <!-- /.box-header -->
@@ -72,7 +72,7 @@
                                                     <div class="form-group">
                                                         <h5>Chọn lớp <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <select name="class_id" required="" class="form-control">
+                                                            <select name="class_id" id="class_id1" required="" class="form-control">
                                                                 <option value="" selected="" disabled="">Chọn đơn vị lớp
                                                                 </option>
                                                                 @foreach($classes as $class)
@@ -143,7 +143,7 @@
 
                                             <div class="text-xs-right">
                                                 <input type="submit" class="btn btn-rounded btn-info mb-5"
-                                                       value="Submit">
+                                                       value="Cập nhật">
                                             </div>
                                         </div>
                                     </div>
@@ -178,4 +178,14 @@
     </script>
 
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+
+        $("#class_id1").select2({
+            placeholder: "Chọn lớp học",
+            allowClear: true
+        });
+    </script>
 @endsection
