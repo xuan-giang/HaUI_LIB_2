@@ -45,7 +45,7 @@
                     </div>
                 @endif
 
-                <table border="2" class="table table-bordered" id="customers" style="margin-top: 2%; text-align: left; border-collapse: collapse;">
+                <table border="2" class="table table-bordered" id="customers" style="margin-top: 2%; text-align: left; border-collapse: collapse; font-size: 13px">
 
                     <tr>
                         <th width="12%">#ID</th>

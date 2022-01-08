@@ -21,7 +21,7 @@
                                 <form method="post" action="{{ route('faculty.store') }}">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-6">
                                             <div class="form-group">
                                                 <h5>Nhập tên khoa <span class="text-danger">*</span></h5>
                                                 <div class="controls">
@@ -32,8 +32,10 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-6">
                                             <div class="text-xs-right">
-                                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit">
+                                                <input type="submit" class="btn btn-rounded btn-info" value="Submit">
                                             </div>
                                         </div>
                                     </div>

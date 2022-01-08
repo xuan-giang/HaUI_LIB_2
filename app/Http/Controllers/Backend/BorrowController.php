@@ -234,7 +234,7 @@ class BorrowController extends Controller
             'message' => 'Xác nhận trả thành công!',
             'alert-type' => 'success'
         );
-        return redirect()->route('borrow.view')->with($notification);
+        return redirect()->route('borrow.detail.view', $data_borrow->id)->with($notification);
     }
 
     public function borrowEdit($id)

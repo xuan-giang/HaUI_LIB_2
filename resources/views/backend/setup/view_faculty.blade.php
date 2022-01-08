@@ -12,15 +12,15 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <div class="col">
+                                    <div class="row card card-primary ">
                                         <form method="post" action="{{ route('faculty.store') }}">
                                             @csrf
-                                            <div class="row" style="margin-right: 40%">
-                                                <div class="col-12">
+                                            <div class="row" style="margin-right: 40%;">
+                                                <h5>Nhập tên khoa <span class="text-danger">*</span></h5>
+                                                <div class="col-6">
                                                     <div class="form-group">
 
                                                         <div class="controls">
-                                                            <h5>Nhập tên khoa <span class="text-danger">*</span></h5>
                                                             <input type="text" name="name" class="form-control"
                                                                    placeholder="Nhập tên khoa trong trường đại học">
                                                             <input type="text" name="amount" class="form-control"
@@ -30,9 +30,10 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="text-xs-right">
-                                                        <input type="submit" class="btn btn-rounded btn-info mb-5"
-                                                               value="Submit">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="text-xs-right" style="">
+                                                        <input type="submit" class="btn btn-rounded btn-info" value="Thêm mới">
                                                     </div>
                                                 </div>
                                             </div>

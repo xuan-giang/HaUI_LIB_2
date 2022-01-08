@@ -125,10 +125,7 @@
                                                         @endforeach
                                                     </div><!-- End col-md-5 -->
 
-                                                    <div class="col-md-2" style="padding-top: 25px;">
-                                                        <span class="btn btn-success addeventmore"><i
-                                                                class="fa fa-plus-circle"></i> </span>
-                                                    </div><!-- End col-md-5 -->
+
 
                                                 </div> <!-- end Row -->
 
@@ -160,9 +157,7 @@
         <div class="whole_extra_item_add" id="whole_extra_item_add">
             <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
                 <div class="form-row">
-
                     <div class="col-md-5">
-
                         <div class="form-group">
                             <h5>Tên sách <span class="text-danger">*</span></h5>
                             <div class="controls">
@@ -175,9 +170,7 @@
                             </div>
                         </div> <!-- // end form group -->
                     </div> <!-- End col-md-5 -->
-
                     <div class="col-md-5">
-
                         <div class="form-group">
                             <h5>Đặt ngày trả <span class="text-danger">*</span></h5>
                             <div class="controls">
@@ -185,33 +178,10 @@
                             </div>
                         </div>
                     </div><!-- End col-md-5 -->
-
-                    <div class="col-md-2" style="padding-top: 25px;">
-                        <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i> </span>
-                        <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i> </span>
-                    </div><!-- End col-md-2 -->
                 </div>
             </div>
         </div>
     </div>
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var counter = 0;
-            $(document).on("click", ".addeventmore", function () {
-                var whole_extra_item_add = $('#whole_extra_item_add').html();
-                $(this).closest(".add_item").append(whole_extra_item_add);
-                counter++;
-            });
-            $(document).on("click", '.removeeventmore', function (event) {
-                $(this).closest(".delete_whole_extra_item_add").remove();
-                counter -= 1
-            });
-
-        });
-    </script>
-
 
 @endsection
 
