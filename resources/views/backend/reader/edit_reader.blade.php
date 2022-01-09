@@ -119,7 +119,7 @@
                                                         </div>
                                                     </div>
                                                 </div> <!-- End Col Md-6 -->
-                                            </div> <!-- End Row -->
+                                            </div>
 
 
                                             <div class="text-xs-right">
