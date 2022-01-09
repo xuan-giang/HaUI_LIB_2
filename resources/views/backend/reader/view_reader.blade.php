@@ -16,7 +16,7 @@
                                 <div class="table-responsive">
                                     <a href="{{ route('reader.add') }}" style="float: right; margin-right: 3%"
                                        class="btn btn-rounded btn-success"> Thêm mới</a>
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
                                             <th style="width: 10%">Mã sinh viên</th>
@@ -30,7 +30,7 @@
                                         </thead>
                                         <tbody>
                                         @foreach($allData as $key => $reader )
-                                            <tr>
+                                            <tr data-widget="expandable-table" aria-expanded="false">
                                                 <td style="width: 10%"><a href="#">{{ $reader->student_code }}</a></td>
                                                 <td style="width: 20%"> {{ $reader->name }}</td>
                                                 <td> {{ $reader->gender }}</td>
@@ -44,9 +44,12 @@
 
                                                 <td>
                                                     <a href="{{ route('reader.edit',$reader->id) }}"
-                                                       class="btn btn-outline-info">Edit</a>
+                                                       class="btn btn-outline-info"><i class="fas fa-pencil-alt"></i></a>
                                                     <a href="{{ route('reader.delete',$reader->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
-                                                       class="btn btn-outline-danger" id="delete">Delete</a>
+                                                       class="btn btn-outline-danger" id="delete"><i class="fas fa-trash"></i></a>
+                                                    <a href="{{ route('reader.detail',$reader->id) }}"
+                                                       class="btn btn-outline-primary"><i class="fas fa-folder">
+                                                        </i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

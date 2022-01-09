@@ -152,6 +152,8 @@ Route::prefix('reader')->group(function () {
 
     Route::get('/view', [ReaderController::class, 'readerView'])->name('reader.view');
 
+    Route::get('/view/{id}', [ReaderController::class, 'readerDetailView'])->name('reader.detail');
+
     Route::get('/add', [ReaderController::class, 'readerAdd'])->name('reader.add');
 
     Route::post('/store', [ReaderController::class, 'readerStore'])->name('reader.store');

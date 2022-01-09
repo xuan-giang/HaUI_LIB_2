@@ -14,9 +14,9 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-bordered table-hover">
                                         <thead>
-                                        <tr>
+                                        <tr >
                                             <th style="width: 6%">Mã phiếu</th>
                                             <th style="width: 8%">Mã sinh viên</th>
                                             <th>Bạn đọc</th>
