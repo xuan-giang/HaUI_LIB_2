@@ -19,7 +19,7 @@ class ReaderController extends Controller
 
     public function readerDetailView($id)
     {
-        $data['allData'] = Reader::all();
+        $data['reader'] = Reader::find($id);
         $data['classes'] = StudentClass::all();
         return view('backend.reader.view_detail_reader', $data);
     }
