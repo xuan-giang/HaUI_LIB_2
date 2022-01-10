@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Borrow;
+use App\Models\BorrowDetail;
 use App\Models\Reader;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
@@ -21,6 +23,9 @@ class ReaderController extends Controller
     {
         $data['reader'] = Reader::find($id);
         $data['classes'] = StudentClass::all();
+        $data['borrows'] = Borrow::where('reader_id', $id)->get();
+        $data['borrow_details'] = BorrowDetail::all();
+        $data['books'] = Book::all();
         return view('backend.reader.view_detail_reader', $data);
     }
 
