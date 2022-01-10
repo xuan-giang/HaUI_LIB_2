@@ -25,14 +25,14 @@
 
                                 <h3 class="profile-username text-center">{{ $reader->name }}</h3>
 
-                                <p class="text-muted text-center">Bạn đọc</p>
+                                <p class="text-muted text-center">{{ $reader->student_code }}</p>
 
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
-                                        <b>Số lượt mượn</b> <a class="float-right">1,322</a>
+                                        <b>Tổng lượt mượn</b> <a class="float-right">1,322</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>Số lượt trả</b> <a class="float-right">543</a>
+                                        <b>Đang mượn</b> <a class="float-right">543</a>
                                     </li>
                                     <li class="list-group-item">
                                         <b>Số lỗi</b> <a class="float-right">13,287</a>
@@ -70,21 +70,19 @@
 
                                 <hr>
 
-                                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+                                <strong><i class="fas fa-pencil-alt mr-1"></i> Điện thoại</strong>
 
                                 <p class="text-muted">
-                                    <span class="tag tag-danger">UI Design</span>
-                                    <span class="tag tag-success">Coding</span>
-                                    <span class="tag tag-info">Javascript</span>
-                                    <span class="tag tag-warning">PHP</span>
-                                    <span class="tag tag-primary">Node.js</span>
+                                    {{ $reader->phone }}
                                 </p>
 
                                 <hr>
 
-                                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+                                <strong><i class="far fa-file-alt mr-1"></i> Email</strong>
 
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                                <p class="text-muted">
+                                    {{ $reader->email }}
+                                </p>
                             </div>
                             <!-- /.card-body -->
                         </div>
