@@ -48,7 +48,7 @@
                                                     <a href="{{ route('reader.delete',$reader->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-outline-danger" id="delete"><i class="fas fa-trash"></i></a>
                                                     <a href="{{ route('reader.detail',$reader->id) }}"
-                                                       class="btn btn-outline-primary"><i class="fas fa-folder">
+                                                       class="btn btn-outline-primary"><i class="fas fa-eye">
                                                         </i></a>
                                                 </td>
                                             </tr>
