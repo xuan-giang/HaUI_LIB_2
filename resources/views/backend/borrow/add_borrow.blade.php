@@ -30,9 +30,13 @@
                                                                         class="form-control">
                                                                     <option></option>
                                                                     @foreach($readers as $reader)
+                                                                        @php
+                                                                            $count_borrowing = DB::table('borrows')->where('reader_id',$reader->id)
+                                                                                ->where('status','Đang mượn')->count('*');
+                                                                        @endphp
                                                                         <option
                                                                             value="{{ $reader->id }}">{{ $reader->student_code }}
-                                                                            - {{ $reader->name }}</option>
+                                                                            - {{ $reader->name }}  - đang mượn: {{ $count_borrowing }}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
