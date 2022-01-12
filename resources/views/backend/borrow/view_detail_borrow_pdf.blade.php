@@ -44,8 +44,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
-            background-color: #4CAF50;
-            color: white;
+            color: black;
         }
     </style>
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
@@ -137,7 +136,7 @@
         <td width="65%" style="font-size: 10px"><i>{{ $borrow['note'] }}</i></td>
     </tr>
 </table>
-<table id="customers1" style="margin-top: 5%; text-align: center" cellspacing="0" cellpadding="0">
+<table id="customers1" class="table table-bordered" style="margin-top: 5%; border-collapse: collapse; text-align: center" >
     <tr style="height: 35%">
         <td>
 
@@ -149,27 +148,19 @@
             <i style="font-size: 9px">(Ký và ghi rõ họ tên)</i>
         </td>
     </tr>
+</table>
 
-    <tr>
+<table id="customers1" class="table table-bordered" style="margin-top: 15%; border-collapse: collapse; text-align: center" >
+    <tr style="height: 530px;" >
         <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $user->name }}</p>
+            <p style="font-size: 12px; font-weight: bold; ">{{ $user->name }}</p>
         </td>
         <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $reader['name'] }}</p>
+            <p style="font-size: 12px; font-weight: bold; ">{{ $reader['name'] }}</p>
         </td>
     </tr>
 </table>
 
-<table id="customers1" style="margin-top: 10%; text-align: center">
-    <tr>
-        <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $user->name }}</p>
-        </td>
-        <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $reader['name'] }}</p>
-        </td>
-    </tr>
-</table>
 <br> <br>
 <i style="font-size: 10px; float: right;">Xuất phiếu ngày : {{ date("d/m/Y") }} - Thư viện trường Đại Học Công Nghiệp Hà Nội</i>
 
