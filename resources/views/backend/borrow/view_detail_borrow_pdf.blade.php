@@ -137,7 +137,7 @@
         <td width="65%" style="font-size: 10px"><i>{{ $borrow['note'] }}</i></td>
     </tr>
 </table>
-<table id="customers1" style="margin-top: 5%;" cellspacing="0" cellpadding="0">
+<table id="customers1" style="margin-top: 5%; text-align: center" cellspacing="0" cellpadding="0">
     <tr style="height: 35%">
         <td>
 
@@ -150,15 +150,23 @@
         </td>
     </tr>
 
-</table>
-
-<table id="customers1" style="margin-top: 10%;">
     <tr>
         <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px; text-align: center">{{ $user->name }}</p>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $user->name }}</p>
         </td>
         <td>
-            <p style="font-size: 12px; font-weight: bold; margin-top: 20px; text-align: center">{{ $reader['name'] }}</p>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $reader['name'] }}</p>
+        </td>
+    </tr>
+</table>
+
+<table id="customers1" style="margin-top: 10%; text-align: center">
+    <tr>
+        <td>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $user->name }}</p>
+        </td>
+        <td>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 20px;">{{ $reader['name'] }}</p>
         </td>
     </tr>
 </table>

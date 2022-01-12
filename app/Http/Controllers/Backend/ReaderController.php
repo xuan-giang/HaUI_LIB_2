@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Borrow;
 use App\Models\BorrowDetail;
+use App\Models\Issues;
 use App\Models\Reader;
 use App\Models\StudentClass;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ class ReaderController extends Controller
         $data['borrows'] = Borrow::where('reader_id', $id)->get();
         $data['borrow_details'] = BorrowDetail::all();
         $data['books'] = Book::all();
+        $data['issues'] = Issues::where('reader_id', $id)->get();
         return view('backend.reader.view_detail_reader', $data);
     }
 
