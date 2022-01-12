@@ -191,14 +191,7 @@
                         </div> <!-- // end form group -->
                     </div>
 
-                    {{--                    <div class="col-md-5">--}}
-                    {{--                        <div class="form-group">--}}
-                    {{--                            <h5>Đặt ngày trả <span class="text-danger">*</span></h5>--}}
-                    {{--                            <div class="controls">--}}
-                    {{--                                <input type="date" name="expire_date[]" class="form-control" required>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div><!-- End col-md-5 -->--}}
+
 
                     <div class="col-md-2" style="padding-top: 25px;">
                         <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i> </span>
@@ -254,9 +247,6 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-
-
 
 @endsection
 
