@@ -52,6 +52,7 @@
                                                         ->where('class_id', $class->id)->count('*');
                                                     $total_borrow += $count_borrow;
                                                     $total_student += $class->amount_students;
+                                                    $key1+=1;
                                                     ?>
                                                     <td>
                                                         {{ $count_borrow }}

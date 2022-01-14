@@ -68,7 +68,7 @@
                                                         <i class="fas fa-trash"></i></a>
                                                     <a href="{{ route('faculty.detail.view', $faculty->id) }}"
                                                        class="btn btn-primary" id="detail" aria-placeholder="view">
-                                                        <i class="fas fa-folder">
+                                                        <i class="fas fa-eye">
                                                         </i></a>
                                                 </td>
                                             </tr>

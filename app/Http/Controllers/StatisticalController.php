@@ -14,9 +14,42 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class StatisticalController extends Controller
 {
-    public function statisticalViewBorrow()
+    public function statisticalViewBorrow(Request $request)
     {
+//        if($request->start_date != null)
+//        {
+//            $start_date = Carbon::parse($request->start_date)
+//                ->toDateTimeString();
+//
+//            $end_date = Carbon::parse($request->end_date)
+//                ->toDateTimeString();
+//            $orders = statistical::whereBetween('created_at', [
+//                $start_date, $end_date
+//            ])->get();
+//        }else{
+//            $orders = statistical::all();
+//        }
+
         $orders = statistical::all();
+        return view('backend.statistical.borrow', ['orders' => $orders]);
+
+    }
+
+    public function statisticalStore(Request $request)
+    {
+        if($request->start_date != null)
+        {
+            $start_date = Carbon::parse($request->start_date)
+                ->toDateTimeString();
+
+            $end_date = Carbon::parse($request->end_date)
+                ->toDateTimeString();
+            $orders = statistical::whereBetween('created_at', [
+                $start_date, $end_date
+            ])->get();
+        }else{
+            $orders = statistical::all();
+        }
 
         return view('backend.statistical.borrow', ['orders' => $orders]);
 

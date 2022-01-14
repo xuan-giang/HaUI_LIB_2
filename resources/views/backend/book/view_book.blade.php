@@ -50,8 +50,6 @@
                                                        class="btn btn-outline-info"><i class="fas fa-pencil-alt"></i></a>
                                                     <a href="{{ route('book.delete',$book->id) }}" onclick="return confirm('Bạn có chắc chắn xoá?')"
                                                        class="btn btn-outline-danger" id="delete"><i class="fas fa-trash"></i></a>
-                                                    <a href=""
-                                                       class="btn btn-outline-primary"><i class="fas fa-folder"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
